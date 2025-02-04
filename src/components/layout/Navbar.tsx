@@ -1,3 +1,4 @@
+// changes made to this file will be reflected across the entire application
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, PhoneCall, Mail } from "lucide-react";
