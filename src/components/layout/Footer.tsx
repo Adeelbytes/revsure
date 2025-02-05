@@ -42,22 +42,11 @@ const footerData = [
     title: "Services",
     links: ["Consultancy", "Construction", "Chemicals"],
   },
-  {
-    title: "Products",
-    links: ["Izonil", "Velosit", "Seed Chemicals"],
-  },
 ];
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {footerData.map((section, index) => (
-          <FooterSection key={index} section={section} index={index} />
-        ))}
-      </div>
-
-      {/* Contact Info & CTA Button */}
+    <footer className=" flex bg-black text-white py-10 px-6">
       <div className="mt-10 text-center">
         <p className="text-gray-400">Engineering is our PASSION.</p>
         <p className="mt-2 flex justify-center items-center gap-2">
@@ -70,6 +59,19 @@ const Footer = () => {
           GET IN TOUCH
         </button>
       </div>
+      <div className="max-w-6xl mx-auto h-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {footerData.map((section, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ y: -5 }} // Moves the section up on hover
+          transition={{ duration: 0.3, ease: "easeOut" }} // Smooth transition
+        >
+          <FooterSection section={section} index={index} />
+        </motion.div>
+      ))}
+    </div>
+
+      {/* Contact Info & CTA Button */}
     </footer>
   );
 };
