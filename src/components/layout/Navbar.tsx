@@ -1,15 +1,14 @@
-// changes made to this file will be reflected across the entire application
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PhoneCall, Mail, X, Menu } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion"; // Import animations
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
-  let timeoutId;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -25,42 +24,31 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const handleMouseEnter = (name) => {
-    clearTimeout(timeoutId);
-    setOpenDropdown(name);
-  };
-
-  const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 150); // 1-second delay before closing dropdown
-  };
+  const handleMouseEnter = (name) => setOpenDropdown(name);
+  const handleMouseLeave = () => setTimeout(() => setOpenDropdown(null), 100); // Small delay before hiding dropdown
 
   return (
     <>
       {/* Top Bar */}
       <div className="bg-primary text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            {/* Contact Information */}
-            <div className="flex space-x-6">
-              <div className="flex items-center space-x-2">
-                <PhoneCall size={16} />
-                <span className="text-sm">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail size={16} />
-                <span className="text-sm">contact@revsure.com</span>
-              </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+          {/* Contact Information */}
+          <div className="flex space-x-6">
+            <div className="flex items-center space-x-2">
+              <PhoneCall size={16} />
+              <span className="text-sm">+1 (555) 123-4567</span>
             </div>
-
-            {/* Social Media Icons */}
-            <div className="flex space-x-4">
-              <a href="https://facebook.com" className="hover:text-blue-600"><FaFacebookF size={16} /></a>
-              <a href="https://instagram.com" className="hover:text-pink-500"><FaInstagram size={16} /></a>
-              <a href="https://linkedin.com" className="hover:text-blue-700"><FaLinkedinIn size={16} /></a>
-              <a href="https://twitter.com" className="hover:text-blue-400"><FaTwitter size={16} /></a>
+            <div className="flex items-center space-x-2">
+              <Mail size={16} />
+              <span className="text-sm">contact@revsure.com</span>
             </div>
+          </div>
+          {/* Social Media Icons */}
+          <div className="flex space-x-4">
+            <a href="https://facebook.com" className="hover:text-blue-600"><FaFacebookF size={16} /></a>
+            <a href="https://instagram.com" className="hover:text-pink-500"><FaInstagram size={16} /></a>
+            <a href="https://linkedin.com" className="hover:text-blue-700"><FaLinkedinIn size={16} /></a>
+            <a href="https://twitter.com" className="hover:text-blue-400"><FaTwitter size={16} /></a>
           </div>
         </div>
       </div>
@@ -75,7 +63,7 @@ const Navbar = () => {
 
             <div className="hidden md:flex space-x-8">
               {navLinks.map((link) => (
-                <div key={link.name} className="relative">
+                <div key={link.name} className="relative group">
                   <Link
                     to={link.path}
                     className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-secondary"}`}
@@ -84,24 +72,35 @@ const Navbar = () => {
                     {link.name}
                   </Link>
 
-                  {/* Dropdown Menu */}
-                  {link.dropdown && openDropdown === link.name && (
-                    <div
-                      className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg"
-                      onMouseEnter={() => handleMouseEnter(link.name)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      {link.dropdown.map((item, index) => (
-                        <Link key={index} to={`${link.path}/${item.toLowerCase().replace(/\s+/g, "-")}`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                          {item}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  {/* Animated Dropdown Menu */}
+                  <AnimatePresence>
+                    {link.dropdown && openDropdown === link.name && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg"
+                        onMouseEnter={() => handleMouseEnter(link.name)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        {link.dropdown.map((item, index) => (
+                          <Link
+                            key={index}
+                            to={`${link.path}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                            className="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition-all duration-200"
+                          >
+                            {item}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
 
+            {/* Mobile Menu Button */}
             <button className="md:hidden text-secondary" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

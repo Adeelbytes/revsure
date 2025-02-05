@@ -9,7 +9,7 @@ import {
   Stethoscope,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import ClientBase from "../components/home_components/ClientsBase"
 const Index = () => {
   const features = [
     {
@@ -129,37 +129,17 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Clients Section */}
       <section className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-secondary">Our Clients</h2>
-            <p className="mt-4 text-lg text-secondary/80">
+            {/* <p className="mt-4 text-lg text-secondary/80">
               Trusted by healthcare providers across the country
-            </p>
+            </p> */}
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {clients.map((client, index) => (
-              <motion.div
-                key={client.type}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center space-x-4"
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                  {client.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-secondary">
-                    {client.type}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <ClientBase/>
         </div>
       </section>
     </div>
