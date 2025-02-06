@@ -1,4 +1,4 @@
-
+import logo from '../assets/logo.png';
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PhoneCall, Mail, X, Menu } from "lucide-react";
@@ -59,7 +59,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link to="/" className="flex items-center">
-              <img src="logo.png" alt="RevSure Logo" className="h-16 w-auto" />
+              <img src={logo} alt="RevSure Logo" className="h-16 w-auto" />
             </Link>
 
             <div className="hidden md:flex space-x-8">

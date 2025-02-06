@@ -1,3 +1,4 @@
+import doctor from '../assets/doctor.png';
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -89,7 +90,7 @@ const Index = () => {
             >
               <div className="relative z-10">
                 <img
-                  src="doctor.png"
+                  src={doctor}
                   alt="Medical Professional"
                   className="w-full h-auto max-w-lg mx-auto rounded-2xl shadow-xl"
                 />
