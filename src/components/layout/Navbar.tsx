@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png';
+import logo from '/src/assets/logo.png';
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PhoneCall, Mail, X, Menu } from "lucide-react";

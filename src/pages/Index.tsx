@@ -1,4 +1,4 @@
-import doctor from '../assets/doctor.png';
+import doctor from '/src/assets/doctor.png';
 import { motion } from "framer-motion";
 import {
   Shield,
