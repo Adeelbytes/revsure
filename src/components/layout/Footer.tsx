@@ -31,20 +31,24 @@ const FooterSection: React.FC<SectionProps> = ({ section, index }) => {
   );
 };
 
-
-
 const footerData = [
   {
-    title: "About",
-    links: ["The Company", "Contact", "Resources"],
-  },
-  {
     title: "Services",
-    links: ["Consultancy", "Construction", "Chemicals"],
+    links: [ "Medical Billing Services",
+      "Medical Coding Services",
+      "Credentialing Services",
+      "Denial Management",
+      "Eligibility Verification",
+      "Revenue Cycle Management",],
   },
   {
-    title: "Products",
-    links: ["Izonil", "Velosit", "Seed Chemicals"],
+    title: "Clients",
+    links: ["Healthcare Systems",
+      "Emergency Rooms",
+      "Urgent Cares",
+      "Hospitals",
+      "Private Practices",
+      "Clinics & Imaging Centers",],
   },
 ];
 
@@ -52,23 +56,22 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-10 px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Contact Info - Kept free as in the reference image */}
+        <div>
+          <h3 className="text-primary text-2xl font-bold">REVSURE</h3>
+          <p className="text-gray-400 mt-2">Engineering is our PASSION.</p>
+          <p className="mt-2">📞 051 5731544 / 2724373</p>
+          <p className="mt-2">📧 info@revsure.com</p>
+          <p className="mt-2">📍 REVSURE, 1 Civic Center Bahria Town Phase 4, Islamabad</p>
+          <button className="mt-5 px-6 py-3 border border-blue-500 text-primary font-bold rounded-lg hover:bg-primary/90 hover:text-black transition">
+            GET IN TOUCH
+          </button>
+        </div>
+
+        {/* Other sections */}
         {footerData.map((section, index) => (
           <FooterSection key={index} section={section} index={index} />
         ))}
-      </div>
-
-      {/* Contact Info & CTA Button */}
-      <div className="mt-10 text-center">
-        <p className="text-gray-400">Engineering is our PASSION.</p>
-        <p className="mt-2 flex justify-center items-center gap-2">
-          📞 051 5731544 / 2724373
-        </p>
-        <p className="mt-2">📧 info@seedpk.com</p>
-        <p className="mt-2">📍 SEED, 1 Civic Center Bahria Town Phase 4, Islamabad</p>
-
-        <button className="mt-5 px-6 py-3 bg-teal-500 text-black font-bold rounded-lg hover:bg-teal-400 transition">
-          GET IN TOUCH
-        </button>
       </div>
     </footer>
   );

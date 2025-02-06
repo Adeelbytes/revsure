@@ -10,6 +10,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import ClientBase from "../components/home_components/ClientsBase"
+import FeatureSection from "../components/home_components/FeatureSection"
+import ServicesSection from "../components/home_components/ServicesSection";
+import TestimonialSection from "../components/home_components/TestimonialSection";
+
 const Index = () => {
   const features = [
     {
@@ -98,37 +102,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-secondary">Why Choose Us</h2>
-            <p className="mt-4 text-lg text-secondary/80">
-              We deliver excellence in medical billing services
-            </p>
-          </div>
+      {/* Stats Bar */}
+      <section className="bg-primary text-white py-10 relative">
+        {/* Arrow Effect */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 
+            border-l-[25px] border-l-transparent border-r-[25px] border-r-transparent 
+            border-t-[25px] border-t-primary">
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:border-primary/20 transition-colors"
-              >
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-secondary mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-secondary/80">{feature.description}</p>
-              </motion.div>
-            ))}
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <p className="text-3xl font-bold">1200+</p>
+              <p className="text-lg">Providers Served</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold">100+</p>
+              <p className="text-lg">Medical Specialties</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold">500+</p>
+              <p className="text-lg">Certified Coders & Billers</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold">50</p>
+              <p className="text-lg">States Served</p>
+            </div>
           </div>
         </div>
       </section>
+
+
+      {/* Features Section */}
+      <FeatureSection/>
+
+      {/* Services Section */}
+      <ServicesSection/>
       
       {/* Clients Section */}
       <section className="py-24 bg-muted">
@@ -142,6 +151,10 @@ const Index = () => {
           <ClientBase/>
         </div>
       </section>
+
+      {/* Testimonial Section */}
+      <TestimonialSection/>
+
     </div>
   );
 };
