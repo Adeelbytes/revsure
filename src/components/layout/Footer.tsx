@@ -34,30 +34,34 @@ const FooterSection: React.FC<SectionProps> = ({ section, index }) => {
 const footerData = [
   {
     title: "Services",
-    links: [ "Medical Billing Services",
+    links: [
+      "Medical Billing Services",
       "Medical Coding Services",
       "Credentialing Services",
       "Denial Management",
       "Eligibility Verification",
-      "Revenue Cycle Management",],
+      "Revenue Cycle Management",
+    ],
   },
   {
     title: "Clients",
-    links: ["Healthcare Systems",
+    links: [
+      "Healthcare Systems",
       "Emergency Rooms",
       "Urgent Cares",
       "Hospitals",
       "Private Practices",
-      "Clinics & Imaging Centers",],
+      "Clinics & Imaging Centers",
+    ],
   },
 ];
 
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-10 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Contact Info - Kept free as in the reference image */}
-        <div>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center sm:text-left">
+        {/* Contact Info */}
+        <div className="flex flex-col items-center sm:items-start">
           <h3 className="text-primary text-2xl font-bold">REVSURE</h3>
           <p className="text-gray-400 mt-2">Engineering is our PASSION.</p>
           <p className="mt-2">📞 051 5731544 / 2724373</p>
@@ -72,6 +76,11 @@ const Footer = () => {
         {footerData.map((section, index) => (
           <FooterSection key={index} section={section} index={index} />
         ))}
+      </div>
+
+      {/* Bottom Section */}
+      <div className="mt-10 text-center text-gray-400 text-sm border-t border-gray-700 pt-4">
+        © {new Date().getFullYear()} REVSURE. All rights reserved.
       </div>
     </footer>
   );

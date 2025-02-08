@@ -32,27 +32,38 @@ const Navbar = () => {
     <>
       {/* Top Bar */}
       <div className="bg-primary text-white py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          {/* Contact Information */}
-          <div className="flex space-x-6">
-            <div className="flex items-center space-x-2">
-              <PhoneCall size={16} />
-              <span className="text-sm">+1 (555) 123-4567</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail size={16} />
-              <span className="text-sm">contact@revsure.com</span>
-            </div>
-          </div>
-          {/* Social Media Icons */}
-          <div className="flex space-x-4">
-            <a href="https://facebook.com" className="hover:text-blue-600"><FaFacebookF size={16} /></a>
-            <a href="https://instagram.com" className="hover:text-pink-500"><FaInstagram size={16} /></a>
-            <a href="https://linkedin.com" className="hover:text-blue-700"><FaLinkedinIn size={16} /></a>
-            <a href="https://twitter.com" className="hover:text-blue-400"><FaTwitter size={16} /></a>
-          </div>
-        </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center sm:justify-between items-center gap-4">
+    
+    {/* Contact Information */}
+    <div className="flex flex-wrap justify-center sm:justify-start space-x-4 sm:space-x-6">
+      <div className="flex items-center space-x-2">
+        <PhoneCall size={16} />
+        <span className="text-sm">+1 (555) 123-4567</span>
       </div>
+      <div className="flex items-center space-x-2">
+        <Mail size={16} />
+        <span className="text-sm">contact@revsure.com</span>
+      </div>
+    </div>
+
+    {/* Social Media Icons */}
+    <div className="flex space-x-4 justify-center sm:justify-end">
+      <a href="https://facebook.com" className="hover:text-blue-600">
+        <FaFacebookF size={16} />
+      </a>
+      <a href="https://instagram.com" className="hover:text-pink-500">
+        <FaInstagram size={16} />
+      </a>
+      <a href="https://linkedin.com" className="hover:text-blue-700">
+        <FaLinkedinIn size={16} />
+      </a>
+      <a href="https://twitter.com" className="hover:text-blue-400">
+        <FaTwitter size={16} />
+      </a>
+    </div>
+  </div>
+</div>
+
 
       {/* Main Navigation */}
       <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`}>
