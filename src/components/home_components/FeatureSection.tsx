@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 // Counter Animation Hook
-const useCounter = (target, duration = 2000) => {
+const useCounter = (target, duration = 2000, startAnimation) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    if (!startAnimation) return;
+    
     let start = 0;
     const step = Math.ceil(target / (duration / 50));
 
@@ -19,19 +21,43 @@ const useCounter = (target, duration = 2000) => {
     }, 50);
 
     return () => clearInterval(timer);
-  }, [target, duration]);
+  }, [target, duration, startAnimation]);
 
   return count;
 };
 
 const FeatureSection = () => {
-  const firstPassRate = useCounter(99.9);
-  const revenueIncrease = useCounter(30);
-  const claimTurnaround = useCounter(24);
-  const daysInAR = useCounter(25);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartAnimation(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const firstPassRate = useCounter(99.9, 2000, startAnimation);
+  const revenueIncrease = useCounter(30, 2000, startAnimation);
+  const claimTurnaround = useCounter(24, 2000, startAnimation);
+  const daysInAR = useCounter(25, 2000, startAnimation);
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section ref={sectionRef} className="bg-gray-100 py-16">
       <div className="max-w-6xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-10">
         {/* Left Side: Analytics Section */}
         <div className="bg-white shadow-lg rounded-lg px-8 py-12 text-center w-full md:w-1/2">

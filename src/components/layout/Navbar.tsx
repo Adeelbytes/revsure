@@ -69,9 +69,16 @@ const Navbar = () => {
       <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <Link to="/" className="flex items-center">
-              <img src={logo} alt="RevSure Logo" className="h-16 w-auto" />
-            </Link>
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="RevSure Logo"
+              className={`transition-all duration-300 ${
+                scrolled ? "h-16 w-auto" : "h-24 w-auto"
+              }`}
+            />
+          </Link>
+
 
             <div className="hidden md:flex space-x-8">
               {navLinks.map((link) => (
