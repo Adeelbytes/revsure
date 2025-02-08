@@ -1,7 +1,7 @@
 import logo from '/src/assets/logo.png';
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { PhoneCall, Mail, X, Menu } from "lucide-react";
+import { ChevronDown, PhoneCall, Mail, X, Menu } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion"; // Import animations
 
@@ -20,8 +20,20 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Services", path: "/services", dropdown: ["Web Development", "SEO", "Marketing"] },
-    { name: "Clients", path: "/clients", dropdown: ["Enterprise", "Startups", "Freelancers"] },
+    { name: "Services", path: "/services", dropdown: [
+      "Medical Billing Services",
+      "Medical Coding Services",
+      "Credentialing Services",
+      "Denial Management",
+      "Eligibility Verification",
+      "Revenue Cycle Management"] },
+    { name: "Clients", path: "/clients", dropdown: [
+      "Healthcare Systems",
+      "Emergency Rooms",
+      "Urgent Cares",
+      "Hospitals",
+      "Private Practices",
+      "Clinics & Imaging Centers"] },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -80,16 +92,17 @@ const Navbar = () => {
           </Link>
 
 
-            <div className="hidden md:flex space-x-8">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative group">
-                  <Link
-                    to={link.path}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-secondary"}`}
-                    onMouseEnter={() => link.dropdown && handleMouseEnter(link.name)}
-                  >
-                    {link.name}
-                  </Link>
+          <div className="hidden md:flex md:justify-between md:gap-8">
+            {navLinks.map((link) => (
+              <div key={link.name} className="relative group">
+                <Link
+                  to={link.path}
+                  className={`text-sm font-medium flex items-center gap-1 min-w-max transition-colors hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-secondary"}`}
+                  onMouseEnter={() => link.dropdown && handleMouseEnter(link.name)}
+                >
+                  {link.name}
+                  {link.dropdown && <span className="text-xs flex items-center"><ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" /></span>}
+                </Link>
 
                   {/* Animated Dropdown Menu */}
                   <AnimatePresence>
