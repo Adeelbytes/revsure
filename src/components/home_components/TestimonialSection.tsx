@@ -19,7 +19,7 @@ const testimonials = [
 const TestimonialSection: React.FC = () => {
   return (
     <section className="py-16 bg-white text-center">
-      <h5 className="text-sm font-bold text-gray-600 uppercase tracking-wider">
+      <h5 className="text-sm font-bold text-gray-600 uppercase tracking-wider mb-8">
         <span className="border-b-2 border-orange-500 pb-1">Testimonials</span>
       </h5>
       <h2 className="text-3xl font-bold text-gray-900 mt-2">What Clients Say</h2>

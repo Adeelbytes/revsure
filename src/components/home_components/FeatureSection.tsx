@@ -54,7 +54,6 @@ const FeatureSection = () => {
   const firstPassRate = useCounter(99.9, 2000, startAnimation);
   const revenueIncrease = useCounter(30, 2000, startAnimation);
   const claimTurnaround = useCounter(24, 2000, startAnimation);
-  const daysInAR = useCounter(25, 2000, startAnimation);
 
   return (
     <section ref={sectionRef} className="bg-gray-100 py-16">
@@ -62,10 +61,10 @@ const FeatureSection = () => {
         {/* Left Side: Analytics Section */}
         <div className="bg-white shadow-lg rounded-lg px-8 py-12 text-center w-full md:w-1/2">
           <h2 className="text-4xl font-bold text-gray-800">Our Success Metrics</h2>
-          <div className="mt-6 grid grid-cols-2 gap-6">
+          <div className="mt-6 grid grid-cols-1 gap-6">
             <div>
               <p className="text-5xl font-extrabold text-primary">{firstPassRate}%</p>
-              <p className="text-lg text-primary">First Pass Rate</p>
+              <p className="text-lg text-primary">First Pass Claim Acceptance</p>
             </div>
             <div>
               <p className="text-5xl font-extrabold text-primary">{revenueIncrease}%</p>
@@ -73,11 +72,7 @@ const FeatureSection = () => {
             </div>
             <div>
               <p className="text-5xl font-extrabold text-primary">{claimTurnaround}</p>
-              <p className="text-lg text-primary">Hours Claim Turnaround</p>
-            </div>
-            <div>
-              <p className="text-5xl font-extrabold text-primary">{">" + daysInAR}</p>
-              <p className="text-lg text-primary">Days in A/R</p>
+              <p className="text-lg text-primary">Hour Claim Turnaround</p>
             </div>
           </div>
         </div>
@@ -85,17 +80,17 @@ const FeatureSection = () => {
         {/* Right Side: Description */}
         <div className="w-full md:w-1/2 text-gray-800">
           <h2 className="text-4xl font-bold">
-            Why Choose <span className="text-primary">Right Medical Billing?</span>
+            Why Choose <span className="text-primary">RevSure Medical Billing?</span>
           </h2>
           <p className="mt-4 text-lg">
-            As your dedicated medical billing services provider, we extend your practice.
-            While you focus on patient care, we handle the complex world of insurance claims, 
-            billing, and revenue collection.
+            At RevSure Medical Billing, we don’t just manage claims—we become an extension of your practice,
+            ensuring a seamless and efficient revenue cycle. While you focus on delivering exceptional patient care,
+            our expert team handles the complexities of insurance claims, patient billing, and revenue collection.
           </p>
           <p className="mt-4 text-lg">
-            Our healthcare system has many moving parts. We help medical facilities with
-            financial management so they can focus on what they do best – providing 
-            compassionate care.
+            Healthcare is a fast-paced environment with many moving parts, and a reliable billing partner is crucial
+            to keeping things running smoothly. At RevSure, we optimize financial workflows, reduce denials, and
+            ensure steady cash flow so you can focus on what matters most—your patients.
           </p>
           <button className="mt-6 bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg text-lg">
             Schedule a Discovery Call

@@ -144,7 +144,9 @@ const Index = () => {
       <section className="py-24 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-secondary">Our Clients</h2>
+          <h5 className="text-lg font-bold text-gray-600 uppercase tracking-wider">
+            <span className="border-b-2 border-orange-500 pb-1">Our Clients</span>
+          </h5>
             {/* <p className="mt-4 text-lg text-secondary/80">
               Trusted by healthcare providers across the country
             </p> */}

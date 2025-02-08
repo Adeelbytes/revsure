@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, PhoneCall, Mail, X, Menu } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion"; // Import animations
+import path from 'path';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,19 +22,19 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services", dropdown: [
-      "Medical Billing Services",
-      "Medical Coding Services",
-      "Credentialing Services",
-      "Denial Management",
-      "Eligibility Verification",
-      "Revenue Cycle Management"] },
+      { name: "Medical Billing Services", path: "/services_pages/MedicalBilling" },
+      { name: "Medical Coding Services", path: "/Medical_Coding" },
+      { name: "Credentialing Services", path: "/Insurance_Credentialing" },
+      { name: "Denial Management", path: "/Denial_Management" },
+      { name: "Eligibility Verification", path: "/Eligibility_Verification" },
+      { name: "Revenue Cycle Management", path: "/RCM" }] },
     { name: "Clients", path: "/clients", dropdown: [
-      "Healthcare Systems",
-      "Emergency Rooms",
-      "Urgent Cares",
-      "Hospitals",
-      "Private Practices",
-      "Clinics & Imaging Centers"] },
+      { name: "Healthcare Systems", path: "/healthcare-systems" },
+      { name: "Emergency Rooms", path: "/emergency-rooms" },
+      { name: "Urgent Cares", path: "/urgent-cares" },
+      { name: "Hospitals", path: "/hospitals" },
+      { name: "Private Practices", path: "/private-practices" },
+      { name: "Clinics & Imaging Centers", path: "/clinics-imaging-centers" }] },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -119,10 +120,10 @@ const Navbar = () => {
                         {link.dropdown.map((item, index) => (
                           <Link
                             key={index}
-                            to={`${link.path}/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                            to={`${link.path}/${item.name.toLowerCase().replace(/\s+/g, "-")}`}
                             className="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition-all duration-200"
                           >
-                            {item}
+                            {item.name}
                           </Link>
                         ))}
                       </motion.div>
@@ -157,8 +158,8 @@ const Navbar = () => {
                   {link.dropdown && (
                     <div className="pl-5 mt-1 space-y-1">
                       {link.dropdown.map((item, index) => (
-                        <Link key={index} to={`${link.path}/${item.toLowerCase().replace(/\s+/g, "-")}`} className="block text-gray-600 hover:text-primary">
-                          {item}
+                        <Link key={index} to={`${link.path}/${item.name.toLowerCase().replace(/\s+/g, "-")}`} className="block text-gray-600 hover:text-primary">
+                          {item.name}
                         </Link>
                       ))}
                     </div>

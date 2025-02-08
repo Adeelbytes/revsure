@@ -9,6 +9,8 @@ import Footer from "./components/layout/Footer";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import MedicalBilling from "./pages/services_pages/MedicalBilling";
+
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
