@@ -10,6 +10,11 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import MedicalBilling from "./pages/services_pages/MedicalBilling";
+import MedicalCoding from "./pages/services_pages/Medical_Coding";
+import CredentialingPage from "./pages/services_pages/Insurance_Credentialing";
+import DenialManagementPage from "./pages/services_pages/Denial_Management";
+import EligibilityVerification from "./pages/services_pages/Eligibility_Verification";
+import RCMServices from "./pages/services_pages/RCM";
 
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
@@ -33,6 +38,12 @@ const App = () => (
                 <Route path="/services" element={<Services />} />
                 <Route path="/clients" element={<Clients />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/MedicalBilling" element={<MedicalBilling />} />
+                <Route path="/MedicalCoding" element={<MedicalCoding />} />
+                <Route path="/CredentialingPage" element={<CredentialingPage />} />
+                <Route path="/DenialManagementPage" element={<DenialManagementPage />} />
+                <Route path="/EligibilityVerification" element={<EligibilityVerification />} />
+                <Route path="/RCMServices" element={<RCMServices />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>

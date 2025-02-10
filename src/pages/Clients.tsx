@@ -49,34 +49,70 @@ const Clients = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="pt-24 pb-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-secondary mb-6">Our Clients</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-4xl font-bold text-secondary mb-6"
+          >
+            Our Clients
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-lg text-gray-600 max-w-3xl mx-auto"
+          >
             We serve a diverse range of healthcare providers, delivering
             exceptional billing services tailored to each specialty.
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+        >
           {clientTypes.map((client, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
             >
-              <div className="mb-4">{client.icon}</div>
+              <motion.div
+                initial={{ rotate: -10 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mb-4"
+              >
+                {client.icon}
+              </motion.div>
               <h2 className="text-xl font-semibold text-secondary mb-3">
                 {client.title}
               </h2>
               <p className="text-gray-600">{client.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, PhoneCall, Mail, X, Menu } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion"; // Import animations
-import path from 'path';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,12 +21,12 @@ const Navbar = () => {
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Services", path: "/services", dropdown: [
-      { name: "Medical Billing Services", path: "/services_pages/MedicalBilling" },
-      { name: "Medical Coding Services", path: "/Medical_Coding" },
-      { name: "Credentialing Services", path: "/Insurance_Credentialing" },
-      { name: "Denial Management", path: "/Denial_Management" },
-      { name: "Eligibility Verification", path: "/Eligibility_Verification" },
-      { name: "Revenue Cycle Management", path: "/RCM" }] },
+      { name: "Medical Billing Services", path: "/MedicalBilling" },
+      { name: "Medical Coding Services", path: "/MedicalCoding" },
+      { name: "Credentialing Services", path: "/CredentialingPage" },
+      { name: "Denial Management", path: "/DenialManagementPage" },
+      { name: "Eligibility Verification", path: "/EligibilityVerification" },
+      { name: "Revenue Cycle Management", path: "/RCMServices" }] },
     { name: "Clients", path: "/clients", dropdown: [
       { name: "Healthcare Systems", path: "/healthcare-systems" },
       { name: "Emergency Rooms", path: "/emergency-rooms" },
@@ -120,7 +119,7 @@ const Navbar = () => {
                         {link.dropdown.map((item, index) => (
                           <Link
                             key={index}
-                            to={`${link.path}/${item.name.toLowerCase().replace(/\s+/g, "-")}`}
+                            to={item.path}
                             className="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition-all duration-200"
                           >
                             {item.name}
