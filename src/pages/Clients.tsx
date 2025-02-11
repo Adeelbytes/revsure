@@ -74,7 +74,7 @@ const Clients = () => {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           initial="hidden"
           animate="visible"
           variants={{
@@ -96,7 +96,7 @@ const Clients = () => {
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow"
+              className="bg-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center text-center"
             >
               <motion.div
                 initial={{ rotate: -10 }}

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-
+import {Link} from "react-router-dom";
 // Counter Animation Hook
 const useCounter = (target, duration = 2000, startAnimation) => {
   const [count, setCount] = useState(0);
@@ -87,14 +87,14 @@ const FeatureSection = () => {
             ensuring a seamless and efficient revenue cycle. While you focus on delivering exceptional patient care,
             our expert team handles the complexities of insurance claims, patient billing, and revenue collection.
           </p>
-          <p className="mt-4 text-lg">
+          <p className="mt-4 mb-4 text-lg">
             Healthcare is a fast-paced environment with many moving parts, and a reliable billing partner is crucial
             to keeping things running smoothly. At RevSure, we optimize financial workflows, reduce denials, and
             ensure steady cash flow so you can focus on what matters most—your patients.
           </p>
-          <button className="mt-6 bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg text-lg">
+          <Link to="/contact" className="mt-10 bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg text-lg">
             Schedule a Discovery Call
-          </button>
+          </Link>
         </div>
       </div>
     </section>

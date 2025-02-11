@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { 
   Shield, 
   CheckCircle, 
@@ -135,15 +136,15 @@ const CredentialingPage = () => {
             Streamline Your Credentialing Process & Get Recognized by Top Insurance Payers
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 transition-all hover:scale-105">
-              <Phone className="mr-2 h-5 w-5" />
-              Schedule Consultation
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
-              Learn More
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </div>
+  <Link 
+    to="/contact" 
+    className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-400 text-white-600 hover:bg-blue-100 transition-all hover:scale-105 shadow-md duration-300"
+  >
+    <Phone className="h-5 w-5 transition-transform group-hover:scale-110" />
+    <span className="font-medium ">Schedule Consultation</span>
+  </Link>
+</div>
+
         </div>
       </div>
 
@@ -261,14 +262,17 @@ const CredentialingPage = () => {
               Let our experts handle your credentialing process while you focus on patient care.
             </p>
             <div className="flex justify-center space-x-4">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 transition-all hover:scale-105">
+            <Link 
+    to="/contact" 
+    className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-400 text-white-600 hover:bg-blue-400 transition-all hover:scale-105 shadow-md duration-300"
+  >
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
+              </Link>
+              {/* <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
                 View Pricing
                 <ChevronRight className="ml-2 h-5 w-5" />
-              </Button>
+              </Button> */}
             </div>
           </FadeInSection>
         </div>

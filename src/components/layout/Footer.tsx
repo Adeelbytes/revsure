@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // Define TypeScript interface for props
 interface SectionProps {
   section: {
     title: string;
-    links: string[];
+    links: { name: string; path: string }[];
   };
   index: number;
 }
@@ -22,8 +23,13 @@ const FooterSection: React.FC<SectionProps> = ({ section, index }) => {
       <h3 className="text-lg font-bold mb-4">{section.title}</h3>
       <ul className="space-y-2">
         {section.links.map((link, i) => (
-          <li key={i} className="hover:text-teal-400 cursor-pointer transition-colors">
-            &gt; {link}
+          <li key={i}>
+            <Link 
+              to={link.path} 
+              className="hover:text-teal-400 cursor-pointer transition-colors"
+            >
+              &gt; {link.name}
+            </Link>
           </li>
         ))}
       </ul>
@@ -35,23 +41,21 @@ const footerData = [
   {
     title: "Services",
     links: [
-      "Medical Billing Services",
-      "Medical Coding Services",
-      "Credentialing Services",
-      "Denial Management",
-      "Eligibility Verification",
-      "Revenue Cycle Management",
+      { name: "Medical Billing", path: "/MedicalBilling" },
+      { name: "Medical Coding", path: "/MedicalCoding" },
+      { name: "Credentialing", path: "/CredentialingPage" },
+      { name: "Denial Management", path: "/DenialManagementPage" },
+      { name: "Eligibility Verification", path: "/EligibilityVerification" },
+      { name: "Revenue Cycle Management", path: "/RCMServices" },
     ],
   },
   {
-    title: "Clients",
+    title: "Company",
     links: [
-      "Healthcare Systems",
-      "Emergency Rooms",
-      "Urgent Cares",
-      "Hospitals",
-      "Private Practices",
-      "Clinics & Imaging Centers",
+      { name: "About Us", path: "/about" },
+      { name: "Our Clients", path: "/clients" },
+      { name: "Services", path: "/services" },
+      { name: "Contact", path: "/contact" },
     ],
   },
 ];
@@ -67,9 +71,12 @@ const Footer = () => {
           <p className="mt-2">📞 051 5731544 / 2724373</p>
           <p className="mt-2">📧 info@revsure.com</p>
           <p className="mt-2">📍 REVSURE, 1 Civic Center Bahria Town Phase 4, Islamabad</p>
-          <button className="mt-5 px-6 py-3 border border-blue-500 text-primary font-bold rounded-lg hover:bg-primary/90 hover:text-black transition">
+          <Link 
+            to="/contact" 
+            className="mt-5 px-6 py-3 border border-blue-500 text-primary font-bold rounded-lg hover:bg-primary/90 hover:text-black transition"
+          >
             GET IN TOUCH
-          </button>
+          </Link>
         </div>
 
         {/* Other sections */}

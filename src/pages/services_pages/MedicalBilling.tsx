@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Hospital, Clock, Shield, Settings, Users, FileText, Phone, ChartBar, Heart, Building, Stethoscope, DollarSign } from 'lucide-react';
-
+import { Link } from "react-router-dom";
 const MedicalBilling = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -90,10 +90,10 @@ const MedicalBilling = () => {
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
             Streamline your revenue cycle and maximize reimbursements with RevSure's comprehensive medical billing solutions.
           </p>
-          <button className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Link to="/contact" className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
             <Phone className="w-5 h-5" />
             <span>Schedule Free Consultation</span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -164,10 +164,10 @@ const MedicalBilling = () => {
             Let RevSure handle your medical billing so you can focus on what matters most—your patients.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Link to="/contact" className="flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
               <Phone className="w-5 h-5" />
               <span>Contact Us</span>
-            </button>
+            </Link>
             <button className="flex items-center space-x-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
               <ChartBar className="w-5 h-5" />
               <span>View Pricing</span>

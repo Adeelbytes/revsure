@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, Clock, DollarSign, HeartPulse, Phone, Shield, Users, FileText, ChartBar, Calendar, BadgeCheck } from 'lucide-react';
-
+import {Link} from "react-router-dom";
 const RCMServices = () => {
   const [hoveredStep, setHoveredStep] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -79,10 +79,10 @@ const RCMServices = () => {
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
             Maximize Revenue & Improve Reimbursement Efficiency with RevSure!
           </p>
-          <button className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Link to="/contact" className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
             <span>Get Started Today</span>
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -132,14 +132,14 @@ const RCMServices = () => {
             Connect with our experts and discover how RevSure can transform your healthcare revenue management.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Link to="/contact" className="flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
               <Phone className="w-5 h-5" />
               <span>Schedule a Demo</span>
-            </button>
-            <button className="flex items-center space-x-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            </Link>
+            <Link to="/contact" className="flex items-center space-x-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
               <Users className="w-5 h-5" />
               <span>Contact Sales</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

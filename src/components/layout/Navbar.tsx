@@ -49,7 +49,7 @@ const Navbar = () => {
   ];
 
   const handleMouseEnter = (name) => setOpenDropdown(name);
-  const handleMouseLeave = () => setTimeout(() => setOpenDropdown(null), 100);
+  const handleMouseLeave = () => setTimeout(() => setOpenDropdown(null), 200);
 
   return (
     <>
@@ -141,34 +141,40 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative">
-                  <button
-                    className="block px-3 py-2 text-base font-medium transition-colors hover:text-primary w-full text-left"
-                    onClick={() => setMobileDropdown(mobileDropdown === link.name ? null : link.name)}
-                  >
-                    {link.name}
-                    {link.dropdown && <ChevronDown size={14} className="inline ml-2 transition-transform duration-200" />}
-                  </button>
+        {/* Mobile menu */}
+{isOpen && (
+  <div className="md:hidden bg-white/95 backdrop-blur-md">
+    <div className="px-2 pt-2 pb-3 space-y-1">
+      {navLinks.map((link) => (
+        <div key={link.name} className="relative">
+          <Link
+            to={link.path}
+            className={`block px-3 py-2 text-base font-medium transition-colors hover:text-primary ${location.pathname === link.path ? "text-primary" : "text-secondary"}`}
+            onClick={() => setIsOpen(false)} // Close menu when a link is clicked
+          >
+            {link.name}
+          </Link>
 
-                  {/* Dropdown for Mobile */}
-                  {link.dropdown && mobileDropdown === link.name && (
-                    <div className="pl-5 mt-1 space-y-1">
-                      {link.dropdown.map((item, index) => (
-                        <Link key={index} to={item.path} className="block text-gray-600 hover:text-primary px-3 py-1">
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
+          {/* Dropdown for mobile */}
+          {link.dropdown && (
+            <div className="pl-5 mt-1 space-y-1">
+              {link.dropdown.map((item, index) => (
+                <Link 
+                  key={index} 
+                  to={item.path} // Fix incorrect path reference
+                  className="block text-gray-600 hover:text-primary"
+                  onClick={() => setIsOpen(false)} // Close menu when a dropdown item is clicked
+                >
+                  {item.name}
+                </Link>
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+)}
       </nav>
     </>
   );

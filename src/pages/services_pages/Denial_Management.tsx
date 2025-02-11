@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -7,7 +8,6 @@ import {
   Clock,
   TrendingUp,
   Phone,
-  ArrowRight,
   ChevronDown,
   Shield,
   LineChart,
@@ -113,47 +113,50 @@ const DenialManagementPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Sticky Header */}
-      <div className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <span className="text-xl font-bold text-blue-600">RevSure</span>
-          <Button variant="outline" className="hover:scale-105 transition-transform">
-            Get Started
-          </Button>
-        </div>
-      </div>
+      
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-red-600 to-blue-700 text-white pt-20">
-        <div className="container mx-auto px-4 py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6 animate-bounce-in">
-              <AlertTriangle className="h-16 w-16 text-yellow-300" />
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-              Denial Management Services
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 animate-slide-up">
-              Reduce Claim Denials & Maximize Reimbursements with RevSure!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-bounce-in">
-              <Button size="lg" className="bg-white text-blue-700 hover:bg-blue-50 hover:scale-105 transition-all w-full sm:w-auto">
-                <Phone className="mr-2 h-5 w-5" />
-                Contact Us Today
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 hover:scale-105 transition-all w-full sm:w-auto">
-                View Success Stories
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-            <div className="mt-12 animate-bounce">
-              <ChevronDown className="h-8 w-8 mx-auto text-white/50" />
-            </div>
-          </div>
-        </div>
+      <div className="bg-gradient-to-r from-indigo-800 to-blue-500 text-white pt-20">
+  <div className="container mx-auto px-6 py-24">
+    <div className="max-w-3xl mx-auto text-center">
+      
+      {/* Alert Icon */}
+      <div className="flex justify-center mb-6 animate-fade-in">
+        <AlertTriangle className="h-16 w-16 text-yellow-400 drop-shadow-lg" />
       </div>
 
+      {/* Heading */}
+      <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight animate-slide-up">
+        Denial Management Services
+      </h1>
+
+      {/* Subtext */}
+      <p className="text-lg md:text-2xl mb-8 text-gray-100 animate-fade-in">
+        Reduce Claim Denials & Maximize Reimbursements with <span className="text-yellow-300 font-semibold">RevSure!</span>
+      </p>
+
+      {/* CTA Button */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+        <Link 
+          to="/contact"
+          className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+        >
+          <Phone className="h-5 w-5" />
+          <span>Contact Us Today</span>
+        </Link>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="mt-12 animate-bounce">
+        <ChevronDown className="h-8 w-8 mx-auto text-white/70" />
+      </div>
+
+    </div>
+  </div>
+</div>
+
       {/* Stats Section */}
-      <div className="container mx-auto px-4 -mt-16 relative z-10">
+      <div className="container mx-auto px-4 mt-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <AnimatedCard key={index} delay={200 + index * 100}>
@@ -261,13 +264,13 @@ const DenialManagementPage = () => {
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Let our experts handle your denial management while you focus on patient care.
               </p>
-              <Button 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all hover:scale-105 transform"
+              <Link 
+                to="/contact"
+                className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Get Started Today
-              </Button>
+              </Link>
             </div>
           </AnimatedCard>
         </div>

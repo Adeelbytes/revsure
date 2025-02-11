@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Phone, ArrowRight, Building, Hospital, Stethoscope, Clock, Shield, DollarSign, ChevronDown } from 'lucide-react';
@@ -85,14 +86,11 @@ const MedicalCodingPage = () => {
               Accurate coding is the foundation of a successful revenue cycle!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-bounce-in">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 hover:scale-105 transition-all w-full sm:w-auto">
+              <Link to="/contact"  className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <Phone className="mr-2 h-5 w-5" />
                 Contact Us Today
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-black hover:scale-105 transition-all w-full sm:w-auto">
-                Learn More
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              </Link>
+              
             </div>
             <div className="mt-12 animate-bounce">
               <ChevronDown className="h-8 w-8 mx-auto text-white/50" />
@@ -190,13 +188,15 @@ const MedicalCodingPage = () => {
               <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
                 Join countless healthcare providers who trust RevSure for their medical coding needs.
               </p>
-              <Button 
-                size="lg" 
-                className="bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all hover:scale-105 transform"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                Contact RevSure for Expert Solutions
-              </Button>
+              <Link 
+  to="/contact" 
+  className="flex items-center justify-center gap-2 px-6 py-4 text-white bg-blue-600 rounded-lg shadow-lg transition-all transform hover:bg-blue-700 hover:shadow-xl hover:scale-105 duration-300 group"
+  aria-label="Contact RevSure for Expert Solutions"
+>
+  <Phone className="h-5 w-5 transition-transform group-hover:scale-110" />
+  <span className="font-medium">Contact RevSure for Expert Solutions</span>
+</Link>
+
             </div>
           </AnimatedCard>
         </div>

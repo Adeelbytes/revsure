@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, DollarSign, Users, Shield, Clock, Phone, ArrowRight } from 'lucide-react';
@@ -59,15 +60,15 @@ const EligibilityVerification = () => {
               Ensure Smooth Billing & Avoid Claim Denials with RevSure!
             </p>
             <div className="flex justify-center gap-4">
-              <Button 
-                className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 rounded-xl text-lg
+              <Link  to="/contact"
+                className="flex bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 items-center rounded-xl text-lg
                          shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
                          transform transition-all duration-300 hover:scale-105"
               >
                 <Phone className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
                 Contact Us Today
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -152,18 +153,18 @@ const EligibilityVerification = () => {
         </Card>
 
         {/* CTA Section */}
-        <div className="text-center py-16 bg-gradient-to-b from-transparent to-blue-50 rounded-2xl">
+        <div className="flex flex-col items-center u text-center py-16 bg-gradient-to-b from-transparent to-blue-50 rounded-2xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">
             Don't let eligibility errors impact your revenue
           </h2>
-          <Button 
-            className="group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 
-                     text-white px-8 py-6 rounded-xl text-lg shadow-lg shadow-blue-600/20 
-                     transform transition-all duration-300 hover:scale-105"
+          <Link to="/contact"
+            className="flex  bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 items-center rounded-xl text-lg
+            shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30
+            transform transition-all duration-300 hover:scale-105"
           >
             Partner with RevSure Today
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
-          </Button>
+          </Link>
         </div>
       </div>
     </div>
