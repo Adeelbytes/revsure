@@ -1,4 +1,4 @@
-import doctor from '/src/assets/doctor.png';
+import bg from '/src/assets/bg.jpg';
 import { motion } from "framer-motion";
 import {
   Shield,
@@ -52,56 +52,41 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-primary/10 to-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="space-y-8 text-left"
-            >
-              <h1 className="text-4xl md:text-6xl font-bold text-secondary leading-tight">
-                Maximize Your Revenue,
-                <br />
-                Minimize Your Hassles
-              </h1>
-              <p className="text-lg md:text-xl text-secondary/80">
-                Expert medical billing services tailored to your practice's needs.
-                Focus on your patients while we handle the rest.
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center px-8 py-4 text-lg font-medium text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                Get Free Consultation
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Link>
-            </motion.div>
+      <section
+        className="relative min-h-screen flex items-center text-white bg-cover bg-center"
+        style={{ backgroundImage: `url(${bg})` }} // Ensure bg is correctly imported
+      >
+        {/* Background Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
 
-            {/* Right side - Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative"
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-300 uppercase tracking-widest">
+              Maximize Your Revenue, Minimize Your Hassles
+            </h2>
+            <h1 className="text-6xl md:text-8xl font-extrabold text-white">
+              REVSURE
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+              Expert medical billing services tailored to your practice's needs.
+              Focus on your patients while we handle the rest.
+            </p>
+            <Link
+              to="/demo"
+              className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-secondary rounded-lg hover:bg-primary/90 transition"
             >
-              <div className="relative z-10">
-                <img
-                  src={doctor}
-                  alt="Medical Professional"
-                  className="w-full h-auto max-w-lg mx-auto rounded-2xl shadow-xl"
-                />
-                {/* Decorative elements */}
-                <div className="absolute -z-10 top-10 right-10 w-full h-full bg-primary/10 rounded-2xl transform translate-x-4 translate-y-4" />
-                <div className="absolute -z-20 top-20 right-20 w-full h-full bg-secondary/5 rounded-2xl transform translate-x-8 translate-y-8" />
-              </div>
-            </motion.div>
-          </div>
+              Get Free Consultation →
+            </Link>
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* Stats Bar */}
       <section className="bg-primary text-white py-10 relative">

@@ -1,2 +1,3 @@
 // colors.js
-export const primaryColor = "#003466";
+export const primaryColor = "#06aaee";
+export const secondaryColor = "#69b97a";

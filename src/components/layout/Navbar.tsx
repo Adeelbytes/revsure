@@ -87,7 +87,7 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm" : "bg-white"}`}>
+      <nav className={`sticky top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-secondary/20 backdrop-blur-md shadow-sm" : "bg-secondary/10"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link to="/" className="flex items-center">
@@ -117,10 +117,11 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg"
+                        className="absolute left-0 transform translate-x-full mt-2 w-52 bg-white border rounded-lg shadow-lg"
                         onMouseEnter={() => handleMouseEnter(link.name)}
                         onMouseLeave={handleMouseLeave}
                       >
+
                         {link.dropdown.map((item, index) => (
                           <Link key={index} to={item.path} className="block px-4 py-2 text-gray-700 hover:bg-primary/10 hover:text-primary transition-all duration-200">
                             {item.name}

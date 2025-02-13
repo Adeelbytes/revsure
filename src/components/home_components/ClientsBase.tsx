@@ -23,7 +23,7 @@ const ClientBase = () => {
           bustling operations. Our commitment lies in delivering tailored
           solutions that drive revenue and efficiency.
         </p>
-        <button className="mt-6 bg-primary text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-primary/90">
+        <button className="mt-6 bg-secondary text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-primary/90">
           Let's Streamline Your Billing
         </button>
       </div>

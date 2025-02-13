@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 // Define TypeScript interface for props
 interface SectionProps {
@@ -68,9 +69,24 @@ const Footer = () => {
         <div className="flex flex-col items-center sm:items-start">
           <h3 className="text-primary text-2xl font-bold">REVSURE</h3>
           <p className="text-gray-400 mt-2">Engineering is our PASSION.</p>
-          <p className="mt-2">📞 051 5731544 / 2724373</p>
-          <p className="mt-2">📧 info@revsure.com</p>
-          <p className="mt-2">📍 REVSURE, 1 Civic Center Bahria Town Phase 4, Islamabad</p>
+
+          {/* Contact Details */}
+          <div className="mt-2 flex items-center gap-2 group">
+            <Phone className="text-white group-hover:text-primary transition duration-300" />
+            <p>051 5731544 / 2724373</p>
+          </div>
+
+          <div className="mt-2 flex items-center gap-2 group">
+            <Mail className="text-white group-hover:text-primary transition duration-300" />
+            <p>info@revsure.com</p>
+          </div>
+
+          <div className="mt-2 flex items-center gap-2 group">
+            <MapPin className="text-white group-hover:text-primary transition duration-300" />
+            <p>REVSURE, Bahria Town Phase 4, Islamabad</p>
+          </div>
+
+          {/* CTA Button */}
           <Link 
             to="/contact" 
             className="mt-5 px-6 py-3 border border-blue-500 text-primary font-bold rounded-lg hover:bg-primary/90 hover:text-black transition"

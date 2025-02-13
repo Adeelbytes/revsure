@@ -26,11 +26,11 @@ const config: Config = {
         foreground: "hsl(var(--foreground))",
 
         primary: {
-          DEFAULT: "#003466",
+          DEFAULT: "#06aaee",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#475569",
+          DEFAULT: "#69b97a",
           foreground: "#FFFFFF",
         },
         muted: {
