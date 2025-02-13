@@ -28,7 +28,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col bg-[#D4F6FF] min-h-screen">
           <Navbar />
           <main className="flex-grow">
             <AnimatePresence mode="wait">

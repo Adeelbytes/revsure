@@ -73,17 +73,17 @@ const Footer = () => {
           {/* Contact Details */}
           <div className="mt-2 flex items-center gap-2 group">
             <Phone className="text-white group-hover:text-primary transition duration-300" />
-            <p>051 5731544 / 2724373</p>
+            <p className="hover:text-primary transition duration-300">051 5731544 / 2724373</p>
           </div>
 
           <div className="mt-2 flex items-center gap-2 group">
             <Mail className="text-white group-hover:text-primary transition duration-300" />
-            <p>info@revsure.com</p>
+            <p className="hover:text-primary transition duration-300">info@revsure.com</p>
           </div>
 
           <div className="mt-2 flex items-center gap-2 group">
             <MapPin className="text-white group-hover:text-primary transition duration-300" />
-            <p>REVSURE, Bahria Town Phase 4, Islamabad</p>
+            <p className="hover:text-primary transition duration-300">REVSURE, Bahria Town Phase 4, Islamabad</p>
           </div>
 
           {/* CTA Button */}
