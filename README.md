@@ -1,6 +1,6 @@
-# Welcome to REVSURE MEDICAL BIll
+# Welcome to REVSURE
 
-## Project info
+## Project information
 
 **URL**: https://revsure.vercel.app
 
