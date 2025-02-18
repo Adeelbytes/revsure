@@ -1,6 +1,6 @@
 # Welcome to REVSURE
 
-## Project info
+## Project information
 
 **URL**: https://revsure.vercel.app
 
@@ -48,7 +48,3 @@ This project is built with .
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## I want to use a custom domain - is that possible?
-
-yes, go to "GODADDY.com" for best domains in best prices. 
