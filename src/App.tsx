@@ -29,7 +29,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <div className="flex flex-col bg-[#D4F6FF] min-h-screen">
-          <Navbar />
+        {location.pathname !== '/' && <Navbar />}
           <main className="flex-grow">
             <AnimatePresence mode="wait">
               <Routes>

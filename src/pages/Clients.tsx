@@ -8,39 +8,38 @@ import {
   Camera,
 } from "lucide-react";
 
+
 const Clients = () => {
   const clientTypes = [
     {
-      icon: <Building2 className="w-12 h-12 text-primary" />,
+      icon: <Building2 className="w-12 h-12 text-teal-400" />,
       title: "Healthcare Systems",
-      description:
-        "Comprehensive billing solutions for large healthcare networks.",
+      description: "Comprehensive billing solutions for large healthcare networks.",
     },
     {
-      icon: <Timer className="w-12 h-12 text-primary" />,
+      icon: <Timer className="w-12 h-12 text-teal-400" />,
       title: "Emergency Rooms",
       description: "Specialized billing services for emergency care facilities.",
     },
     {
-      icon: <Stethoscope className="w-12 h-12 text-primary" />,
+      icon: <Stethoscope className="w-12 h-12 text-teal-400" />,
       title: "Urgent Cares",
       description: "Efficient billing management for urgent care centers.",
     },
     {
-      icon: <Hospital className="w-12 h-12 text-primary" />,
+      icon: <Hospital className="w-12 h-12 text-teal-400" />,
       title: "Hospitals",
       description: "Complete revenue cycle management for hospitals.",
     },
     {
-      icon: <User className="w-12 h-12 text-primary" />,
+      icon: <User className="w-12 h-12 text-teal-400" />,
       title: "Private Practices",
       description: "Tailored billing solutions for private medical practices.",
     },
     {
-      icon: <Camera className="w-12 h-12 text-primary" />,
+      icon: <Camera className="w-12 h-12 text-teal-400" />,
       title: "Clinics & Imaging Centers",
-      description:
-        "Specialized billing services for clinics and diagnostic centers.",
+      description: "Specialized billing services for clinics and diagnostic centers.",
     },
   ];
 
@@ -50,7 +49,7 @@ const Clients = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="pt-24 pb-16"
+      className="bg-black text-white py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -58,7 +57,7 @@ const Clients = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl font-bold text-secondary mb-6"
+            className="text-4xl font-bold text-white mb-6"
           >
             Our Clients
           </motion.h1>
@@ -66,7 +65,7 @@ const Clients = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg text-gray-600 max-w-3xl mx-auto"
+            className="text-lg text-gray-400 max-w-3xl mx-auto"
           >
             We serve a diverse range of healthcare providers, delivering
             exceptional billing services tailored to each specialty.
@@ -96,7 +95,7 @@ const Clients = () => {
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="bg-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow flex flex-col items-center text-center"
+              className="bg-gray-900 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center border border-gray-700"
             >
               <motion.div
                 initial={{ rotate: -10 }}
@@ -106,10 +105,10 @@ const Clients = () => {
               >
                 {client.icon}
               </motion.div>
-              <h2 className="text-xl font-semibold text-secondary mb-3">
+              <h2 className="text-xl font-semibold text-white mb-3">
                 {client.title}
               </h2>
-              <p className="text-gray-600">{client.description}</p>
+              <p className="text-gray-400">{client.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -117,5 +116,9 @@ const Clients = () => {
     </motion.div>
   );
 };
+
+
+
+
 
 export default Clients;
