@@ -57,7 +57,7 @@ const FeatureSection = () => {
   const claimTurnaround = useCounter(24, 2000, startAnimation);
 
   return (
-    <section ref={sectionRef} className="bg-gray-100 py-16">
+    <section ref={sectionRef} className="bg-bg py-16">
       <div className="max-w-6xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-10">
         {/* Left Side: Analytics Section */}
         <div className="bg-white shadow-lg rounded-lg px-8 py-12 text-center w-full md:w-1/2">
