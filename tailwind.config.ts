@@ -45,6 +45,9 @@ const config: Config = {
           DEFAULT: "#F1F5F9",
           foreground: "#475569",
         },
+        fontFamily: {
+          poppins: "Poppins", // Add Poppins
+        },
       },
       keyframes: {
         "fade-up": {

@@ -19,40 +19,52 @@ import RCMServices from "./pages/services_pages/RCM";
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import {  useLocation } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="flex flex-col bg-[#D4F6FF] min-h-screen">
-        {location.pathname !== '/' && <Navbar />}
-          <main className="flex-grow">
-            <AnimatePresence mode="wait">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/clients" element={<Clients />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/MedicalBilling" element={<MedicalBilling />} />
-                <Route path="/MedicalCoding" element={<MedicalCoding />} />
-                <Route path="/CredentialingPage" element={<CredentialingPage />} />
-                <Route path="/DenialManagementPage" element={<DenialManagementPage />} />
-                <Route path="/EligibilityVerification" element={<EligibilityVerification />} />
-                <Route path="/RCMServices" element={<RCMServices />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatePresence>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+
+const Layout = () => {
+  const location = useLocation(); // useLocation is now inside BrowserRouter
+
+  return (
+    <div className="flex flex-col bg-[#D4F6FF] min-h-screen">
+      {location.pathname !== "/" && <Navbar />}
+      <main className="flex-grow">
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/MedicalBilling" element={<MedicalBilling />} />
+            <Route path="/MedicalCoding" element={<MedicalCoding />} />
+            <Route path="/CredentialingPage" element={<CredentialingPage />} />
+            <Route path="/DenialManagementPage" element={<DenialManagementPage />} />
+            <Route path="/EligibilityVerification" element={<EligibilityVerification />} />
+            <Route path="/RCMServices" element={<RCMServices />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Layout /> {/* Move the routing logic inside Layout */}
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

@@ -121,7 +121,7 @@ const MedicalBilling = () => {
   ];
 
   const getColorClasses = (color) => ({
-    blue: "bg-blue-50 text-blue-600 border-blue-100",
+    blue: "bg-#247D60 text-blue-600 border-blue-100",
     green: "bg-green-50 text-green-600 border-green-100",
     purple: "bg-purple-50 text-purple-600 border-purple-100",
     emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
@@ -133,7 +133,7 @@ const MedicalBilling = () => {
     <div className={`w-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
       {/* Hero Section */}
-<div className="relative bg-gradient-to-r from-blue-600 to-indigo-600 overflow-hidden">
+<div className="relative bg-gradient-to-r from-[#0C969C] to-indigo-600 overflow-hidden">
   {/* Background Pattern */}
   <div className="absolute inset-0 opacity-10">
     <div className="absolute inset-0" style={{
@@ -313,7 +313,7 @@ const MedicalBilling = () => {
       </div>
 
       {/* Final CTA Section */}
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 py-16">
+      <div className="bg-gradient-to-r from-[#031716] to-[#0A7075] py-16">
         <div className="container mx-auto px-6 text-center text-white">
           <h2 className="text-3xl font-bold mb-6">Focus on What Matters Most—Your Patients</h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
