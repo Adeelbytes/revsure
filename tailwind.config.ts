@@ -28,6 +28,15 @@ const config: Config = {
         bg: {
           DEFAULT: "#DAF1DE",
           foreground: "#FFFFFF",
+
+        },
+        servicesPrimary:
+        {
+          DEFAULT: "#0C969C",
+        },
+        servicesSecondary:
+        {
+          DEFAULT: "#6BA3BE",
         },
         primary: {
           DEFAULT: "#058283",

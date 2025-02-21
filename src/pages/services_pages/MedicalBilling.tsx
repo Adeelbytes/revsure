@@ -6,7 +6,6 @@ import { Phone, ChartBar, Shield, Clock, Award, Users, Check, Code, Zap, Buildin
 
 const MedicalBilling = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -41,7 +40,7 @@ const MedicalBilling = () => {
   ];
 
   return (
-    <div className={`w-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`w-full transition-opacity bg-servicesPrimary duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section - Kept as is for strong visual impact */}
       <div className="relative bg-gradient-to-r from-[#0C969C] to-indigo-600 overflow-hidden">
         <div className="relative">
@@ -95,7 +94,7 @@ const MedicalBilling = () => {
       </div>
 
       {/* Combined Features Section */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-servicesPrimary py-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {combinedFeatures.map((feature, index) => (
@@ -131,10 +130,7 @@ const MedicalBilling = () => {
               <Phone className="w-5 h-5" />
               <span>Contact Us</span>
             </Link>
-            <button className="flex items-center space-x-2 bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-400 transition-all duration-300">
-              <ChartBar className="w-5 h-5" />
-              <span>View Pricing</span>
-            </button>
+            
           </div>
         </div>
       </div>
