@@ -1,280 +1,250 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { 
-  Shield, 
-  CheckCircle, 
-  Clock, 
-  FileCheck, 
-  Users, 
-  Phone,
-  ArrowRight,
-  BadgeCheck,
-  ClipboardCheck,
-  Lock,
-  Calendar,
-  Network,
-  ChevronRight,
-  CircleDot,
-  DollarSign
-} from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Shield, FileText, Clock, CheckCircle, Users, Phone, ArrowRight, ClipboardCheck } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-
-const FadeInSection = ({ children, delay = 0, className = "" }) => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  return (
-    <div className={`transform transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-const ProcessStep = ({ number, title, description, isLast = false }) => (
-  <div className="relative flex gap-4">
-    <div className="flex flex-col items-center">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white font-bold">
-        {number}
-      </div>
-      {!isLast && <div className="h-full w-0.5 bg-blue-200" />}
-    </div>
-    <div className="pb-8">
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
-  </div>
-);
 
 const CredentialingPage = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [isIntersecting, setIsIntersecting] = useState({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsIntersecting(prev => ({
+            ...prev,
+            [entry.target.id]: entry.isIntersecting
+          }));
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-animate]').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const features = [
+    { icon: <Shield className="w-8 h-8" />, title: "Build Strong Reputation", description: "Establish credibility with insurance companies and ensure timely payments." },
+    { icon: <FileText className="w-8 h-8" />, title: "Error-Free Applications", description: "We eliminate mistakes that could lead to delays or denials." },
+    { icon: <ClipboardCheck className="w-8 h-8" />, title: "Compliance Assurance", description: "Ensure your practice meets all compliance standards, avoiding penalties." },
+    { icon: <Users className="w-8 h-8" />, title: "Direct Collaboration", description: "Smooth communication with payers for a hassle-free credentialing experience." },
+    { icon: <Clock className="w-8 h-8" />, title: "Seamless Transition", description: "Minimal disruptions so you can start billing payers without delays." }
+  ];
+
+  const process = [
+    { title: "Application Preparation", description: "We gather and prepare all necessary documents for credentialing applications." },
+    { title: "Submission & Follow-Ups", description: "We submit applications and maintain ongoing communication with insurers." },
+    { title: "License & Certification Updates", description: "We ensure your credentials remain valid and up to date." },
+    { title: "Contract Compliance", description: "We verify that all payer agreements align with your practice’s needs." },
+    { title: "Approval & Onboarding", description: "We ensure a smooth transition to in-network status with minimal disruptions." }
+  ];
 
   const benefits = [
-    {
-      title: "Build Strong Reputation",
-      description: "Establish credibility with insurance companies and grow your network.",
-      icon: Shield,
-      color: "blue"
-    },
-    {
-      title: "Eliminate Payment Delays",
-      description: "Ensure consistent revenue with proper credentialing.",
-      icon: Clock,
-      color: "green"
-    },
-    {
-      title: "Insurance Recognition",
-      description: "Get recognized by top insurance providers to increase patient access.",
-      icon: BadgeCheck,
-      color: "purple"
-    },
-    {
-      title: "Certify Authenticity",
-      description: "Prove your legitimacy as a trusted healthcare provider.",
-      icon: CheckCircle,
-      color: "indigo"
-    }
+    "Eliminate payment delays and ensure consistent revenue",
+    "Get recognized by top insurance providers, increasing patient access",
+    "Certify your authenticity as a trusted healthcare provider",
+    "Streamline paperwork and reduce administrative burden",
+    "Ensure compliance with all insurance payer requirements"
   ];
 
-  const services = [
-    {
-      title: "Comprehensive Support",
-      description: "End-to-end management of the credentialing process.",
-      icon: Users,
-      color: "rose"
-    },
-    {
-      title: "Error-Free Applications",
-      description: "Eliminate mistakes that could lead to delays or denials.",
-      icon: ClipboardCheck,
-      color: "emerald"
-    },
-    {
-      title: "Compliance Assurance",
-      description: "Ensure your practice meets all compliance standards.",
-      icon: Lock,
-      color: "blue"
-    },
-    {
-      title: "Direct Insurer Collaboration",
-      description: "Smooth communication with payers for hassle-free experience.",
-      icon: Network,
-      color: "violet"
-    }
-  ];
-
-  const stats = [
-    { value: "99%", label: "Success Rate" },
-    { value: "24/7", label: "Support" },
-    { value: "500+", label: "Providers" },
-    { value: "15+", label: "Years Experience" }
-  ];
-
-  const getColorClasses = (color) => ({
-    blue: "bg-blue-50 text-blue-600 border-blue-100",
-    green: "bg-green-50 text-green-600 border-green-100",
-    purple: "bg-purple-50 text-purple-600 border-purple-100",
-    indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
-    rose: "bg-rose-50 text-rose-600 border-rose-100",
-    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
-    violet: "bg-violet-50 text-violet-600 border-violet-100"
-  })[color];
+  const getAnimationClass = (id) => 
+    isIntersecting[id] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-        <div className="container mx-auto px-6 py-20 text-center">
-          <h1 className="text-5xl font-bold mb-6">
-            Insurance Credentialing Services
-          </h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Streamline Your Credentialing Process & Get Recognized by Top Insurance Payers
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-  <Link 
-    to="/contact" 
-    className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-400 text-white-600 hover:bg-blue-100 transition-all hover:scale-105 shadow-md duration-300"
-  >
-    <Phone className="h-5 w-5 transition-transform group-hover:scale-110" />
-    <span className="font-medium ">Schedule Consultation</span>
-  </Link>
-</div>
-
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {stats.map((stat, index) => (
-            <FadeInSection key={index} delay={index * 100}>
-              <div className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            </FadeInSection>
-          ))}
-        </div>
-      </div>
-
-      {/* Benefits Section */}
-      <div className="container mx-auto px-6 py-16">
-        <FadeInSection>
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Why Choose Our Credentialing Services?
-          </h2>
-        </FadeInSection>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((benefit, index) => (
-            <FadeInSection 
-              key={index} 
-              delay={index * 100}
-            >
-              <div
-                className={`group p-6 rounded-xl bg-white border shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
-                  hoveredCard === index ? 'scale-105' : ''
-                }`}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <div className={`w-12 h-12 rounded-lg ${getColorClasses(benefit.color)} p-3 mb-4 transition-all duration-300 group-hover:scale-110`}>
-                  <benefit.icon className="w-full h-full" />
+      <div className="relative overflow-hidden min-h-[90vh] flex items-center">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-servicesPrimary/5 via-white to-servicesSecondary/5" />
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        
+        {/* Floating Shapes */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-servicesPrimary/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-servicesSecondary/10 rounded-full blur-3xl" />
+        
+        {/* Main Content */}
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-6xl mt-10 mb-10 mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Left Column - Text Content */}
+              <div className="space-y-8">
+                <div className="inline-flex items-center px-4 py-2 bg-servicesPrimary/10 rounded-full">
+                  <Shield className="w-5 h-5 text-servicesPrimary mr-2" />
+                  <span className="text-servicesPrimary font-medium">Trusted Healthcare RCM Partner</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
-              </div>
-            </FadeInSection>
-          ))}
-        </div>
-      </div>
+                
+                <h1 className="text-5xl lg:text-7xl font-bold">
+                  <span className="text-servicesPrimary">Insurance</span>{" "}
+                  <span className="text-servicesSecondary">Credentialing</span>{" "}
+                  <span className="text-servicesPrimary">Services</span>
+                </h1>
 
-      {/* Services Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-6">
-          <FadeInSection>
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Our Comprehensive Services
-            </h2>
-          </FadeInSection>
-          <div className="grid md:grid-cols-2 gap-6">
-            {services.map((service, index) => (
-              <FadeInSection key={index} delay={index * 100}>
-                <div className="group p-6 rounded-xl bg-white border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-lg ${getColorClasses(service.color)} p-3 mb-4 transition-all duration-300 group-hover:scale-110`}>
-                    <service.icon className="w-full h-full" />
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  At RevSure Medical Billing, we take the hassle out of insurance credentialing so you can focus on what truly matters—patient care. Credentialing is a time-consuming and complex process, requiring meticulous attention to detail and strict adherence to insurance payer requirements. A single mistake can result in delays, application rejections, and loss of revenue. That’s why we offer a seamless, end-to-end credentialing solution to ensure your practice is properly recognized by insurance networks without unnecessary delays.
+                </p>
+
+                {/* Key Benefits */}
+                <div className="space-y-4">
+                  {[
+                    "Build a strong reputation with insurance companies",
+                    "Eliminate payment delays and ensure consistent revenue",
+                    "Get recognized by top insurance providers"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Section */}
+                <div className="flex flex-wrap gap-4 pt-4">
+                  <Link
+                    to="/contact"
+                    className="flex items-center px-8 py-4 bg-servicesPrimary text-white rounded-xl 
+                             hover:bg-servicesSecondary transition-all duration-300 hover:scale-105
+                             shadow-lg shadow-servicesPrimary/20 group"
+                  >
+                    <Phone className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
+                    Contact Us Today
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Column - Additional Info Card */}
+              <div className="relative">
+                <div className="bg-white rounded-2xl p-8 shadow-xl relative z-10">
+                  <h3 className="text-2xl font-semibold text-servicesSecondary mb-6">
+                    Comprehensive Credentialing Services
+                  </h3>
+                  <div className="space-y-6">
+                    <p className="text-gray-600">
+                      Insurance credentialing is essential for building a strong reputation with payers and ensuring timely payments. Without proper credentialing, providers may face claim denials and payment bottlenecks that can impact cash flow.
+                    </p>
+                    <div className="bg-gray-50 p-6 rounded-xl">
+                      <h4 className="font-medium text-servicesPrimary mb-4">Our Expertise Includes:</h4>
+                      <ul className="space-y-3">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-500" />
+                          <span>End-to-End Credentialing Assistance</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-500" />
+                          <span>Regular Follow-Ups with Insurers</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-500" />
+                          <span>License & Certification Updates</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600">{service.description}</p>
                 </div>
-              </FadeInSection>
-            ))}
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-full h-full bg-servicesPrimary/10 rounded-2xl -z-10" />
+                <div className="absolute -bottom-4 -left-4 w-full h-full bg-servicesSecondary/10 rounded-2xl -z-10" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Process Section */}
-      <div className="container mx-auto px-6 py-16">
-        <FadeInSection>
-          <Card className="border-none shadow-lg">
-            <CardHeader className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              <CardTitle className="text-2xl">Our Credentialing Process</CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <div className="space-y-4">
-                <ProcessStep 
-                  number="1"
-                  title="Initial Assessment"
-                  description="Comprehensive evaluation of your current credentialing status and requirements"
-                />
-                <ProcessStep 
-                  number="2"
-                  title="Documentation Collection"
-                  description="Gathering and organizing all necessary credentials and certifications"
-                />
-                <ProcessStep 
-                  number="3"
-                  title="Application Submission"
-                  description="Careful submission of applications to insurance providers with attention to detail"
-                />
-                <ProcessStep 
-                  number="4"
-                  title="Follow-up & Monitoring"
-                  description="Continuous tracking and communication until final approval"
-                  isLast
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </FadeInSection>
-      </div>
+      {/* Features Grid */}
+      <div className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12 text-servicesPrimary">
+          Why Choose RevSure for Credentialing?
+        </h2>
+        <div id="features" data-animate className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 transition-all duration-700 ${getAnimationClass('features')}`}>
+          {features.map((feature, index) => (
+            <Card key={index} className="group hover:bg-blue-50/50 bg-white transition-all duration-300 hover:shadow-xl">
+              <CardHeader>
+                <div className="flex items-center space-x-4">
+                  <div className="text-servicesPrimary group-hover:scale-110 transition-transform duration-300">
+                    {feature.icon}
+                  </div>
+                  <CardTitle className="text-xl text-servicesSecondary">
+                    {feature.title}
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 py-16">
-        <div className="container mx-auto px-6 text-center text-white">
-          <FadeInSection>
-            <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-              Let our experts handle your credentialing process while you focus on patient care.
-            </p>
-            <div className="flex justify-center space-x-4">
-            <Link 
-    to="/contact" 
-    className="flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-400 text-white-600 hover:bg-blue-400 transition-all hover:scale-105 shadow-md duration-300"
-  >
-                <Phone className="mr-2 h-5 w-5" />
-                Contact Us
-              </Link>
-              {/* <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 transition-all hover:scale-105">
-                View Pricing
-                <ChevronRight className="ml-2 h-5 w-5" />
-              </Button> */}
+        {/* Process Section */}
+        <div className="mb-24">
+          <h2 className="text-4xl font-bold text-center mb-12 text-servicesPrimary">
+            Our Credentialing Process
+          </h2>
+          <div id="process" data-animate className={`space-y-4 transition-all duration-700 ${getAnimationClass('process')}`}>
+            {process.map((step, index) => (
+              <div 
+                key={index}
+                className="group flex items-center space-x-6 p-6 bg-white rounded-xl shadow-md
+                         hover:shadow-xl transition-all duration-300 hover:scale-102"
+              >
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-servicesPrimary to-servicesSecondary 
+                              text-white rounded-xl flex items-center justify-center
+                              group-hover:scale-110 transition-transform duration-300 font-bold text-lg">
+                  {index + 1}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-xl mb-2 text-servicesSecondary">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <Card id="benefits" data-animate className={`mb-24 transition-all duration-700 ${getAnimationClass('benefits')}`}>
+          <CardHeader>
+            <CardTitle className="text-3xl text-center text-servicesPrimary">
+              Benefits of Insurance Credentialing
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-center space-x-3 p-4 rounded-lg hover:bg-blue-50 transition-colors">
+                  <CheckCircle className="text-green-500 w-6 h-6" />
+                  <span className="text-lg text-gray-700">{benefit}</span>
+                </div>
+              ))}
             </div>
-          </FadeInSection>
+          </CardContent>
+        </Card>
+
+        {/* CTA Section */}
+        <div className="flex flex-col items-center text-center py-16 bg-gradient-to-b from-transparent to-blue-50 rounded-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-servicesPrimary">
+            Simplify Your Credentialing Process Today
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            With RevSure, you don’t have to waste time navigating complex credentialing requirements. Let our experts handle everything, ensuring your practice gains the recognition and network participation it deserves.
+          </p>
+          <Link to="/contact"
+            className="flex bg-servicesPrimary hover:bg-servicesSecondary text-white px-10 py-4 items-center rounded-xl text-lg
+            shadow-lg shadow-servicesPrimary/20 hover:shadow-servicesSecondary/30
+            transform transition-all duration-300 hover:scale-105"
+          >
+            Partner with RevSure Today
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
+          </Link>
         </div>
       </div>
     </div>

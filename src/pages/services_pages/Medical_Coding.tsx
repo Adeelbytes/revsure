@@ -1,256 +1,107 @@
 import React, { useState, useEffect } from 'react';
-import { Hospital, Clock, Shield, Settings, Users, FileText, Phone, ChartBar, Heart, Building, Stethoscope, DollarSign, Check, Award, Code, Zap } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { Phone, ChartBar, Shield, Clock, Award, Users, Check, Code, Zap, Building, Hospital, Stethoscope, DollarSign, Settings, FileText } from 'lucide-react';
 
 const MedicalCodingPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const features = [
-    {
-      title: "Expert Coders",
-      icon: Code,
-      description: "Our certified medical coders ensure accurate and compliant coding, reducing errors and maximizing reimbursements."
-    },
-    {
-      title: "Efficient Workflow",
-      icon: Zap,
-      description: "Streamlined coding processes to improve efficiency and reduce turnaround time for claims submission."
-    },
-    {
-      title: "Compliance Assurance",
-      icon: Shield,
-      description: "We ensure all coding practices adhere to HIPAA and other regulatory standards, minimizing audit risks."
-    }
-  ];
-
-  const specialties = [
-    {
-      title: "Private & Group Practices",
-      icon: Building,
-      description: "Tailored coding solutions for individual and group medical practices, ensuring accuracy and compliance.",
-      color: "blue",
-      features: ["Custom coding workflows", "Dedicated coding support", "Practice-specific compliance"]
-    },
-    {
-      title: "Hospitals & Urgent Care",
-      icon: Hospital,
-      description: "Comprehensive coding services for hospitals and urgent care centers, handling high-volume coding needs.",
-      color: "green",
-      features: ["High-volume coding", "Emergency coding expertise", "Multi-department support"]
-    },
-    {
-      title: "Specialty & Imaging Centers",
-      icon: Stethoscope,
-      description: "Specialized coding for various medical specialties and imaging centers, ensuring accurate reimbursement.",
-      color: "purple",
-      features: ["Specialty-specific coding", "Complex procedure coding", "Insurance verification"]
-    }
-  ];
-
-  const benefits = [
-    {
-      title: "Accurate Coding",
-      icon: Check,
-      description: "Ensure accurate coding to maximize reimbursements and reduce claim denials.",
-      color: "emerald",
-      details: ["Reduced coding errors", "Maximized reimbursements", "Improved claim accuracy"]
-    },
-    {
-      title: "HIPAA-Compliant",
-      icon: Shield,
-      description: "We prioritize data security, ensuring full compliance with HIPAA regulations.",
-      color: "blue",
-      details: ["Full HIPAA compliance", "Secure data handling", "Regular audits"]
-    },
-    {
-      title: "24/7 Support",
-      icon: Clock,
-      description: "Round-the-clock support to address coding issues and ensure smooth operations.",
-      color: "indigo",
-      details: ["Immediate assistance", "Swift issue resolution", "Dedicated support team"]
-    },
-    {
-      title: "Custom Solutions",
-      icon: Settings,
-      description: "Tailored coding solutions to meet the unique needs of your practice.",
-      color: "purple",
-      details: ["Custom workflows", "Practice-specific solutions", "Flexible integration"]
-    },
-    {
-      title: "Audit & Consultation",
-      icon: FileText,
-      description: "Regular audits and consultations to optimize coding processes and ensure compliance.",
-      color: "rose",
-      details: ["Regular audits", "Process optimization", "Compliance checks"]
-    }
-  ];
-
-  const services = [
-    {
-      title: "Medical Coding",
-      description: "Accurate and compliant coding for all medical procedures and diagnoses.",
-      icon: Code
-    },
-    {
-      title: "Coding Audits",
-      description: "Comprehensive audits to ensure coding accuracy and compliance.",
-      icon: FileText
-    },
-    {
-      title: "Compliance Support",
-      description: "Expert support to ensure adherence to coding regulations and standards.",
-      icon: Award
-    },
-    {
-      title: "EHR/EMR Integration",
-      description: "Seamless integration with EHR/EMR systems for efficient coding workflows.",
-      icon: Settings
-    }
-  ];
-
   const stats = [
-    { value: "98%", label: "Coding Accuracy" },
-    { value: "24/7", label: "Support Available" },
+    { value: "99%", label: "Coding Accuracy" },
+    { value: "24/7", label: "Coding Support" },
     { value: "15+", label: "Years Experience" },
-    { value: "1000+", label: "Happy Clients" }
+    { value: "1000+", label: "Satisfied Clients" }
   ];
 
-  const getColorClasses = (color) => ({
-    blue: "bg-blue-50 text-blue-600 border-blue-100",
-    green: "bg-green-50 text-green-600 border-green-100",
-    purple: "bg-purple-50 text-purple-600 border-purple-100",
-    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100",
-    indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
-    rose: "bg-rose-50 text-rose-600 border-rose-100"
-  })[color];
+  const combinedFeatures = [
+    {
+      title: "Accurate & Compliant Coding",
+      icon: Code,
+      description: "Our certified medical coders ensure every claim is coded correctly, reducing denials and minimizing revenue loss. We stay up to date with the latest ICD, CPT, and HCPCS coding changes to ensure full compliance with payer and government regulations.",
+      benefits: ["Certified coders", "Error-free coding", "Compliance with regulations", "Reduced claim denials"]
+    },
+    {
+      title: "Specialty-Specific Coding Expertise",
+      icon: Hospital,
+      description: "Whether you're in cardiology, orthopedics, dermatology, or any other specialty, our coders apply precise coding techniques tailored to your practice. We understand the unique coding requirements of each specialty.",
+      benefits: ["Specialty-specific coding", "Maximized reimbursements", "High accuracy rates", "Customized solutions"]
+    },
+    {
+      title: "Revenue Cycle Optimization",
+      icon: ChartBar,
+      description: "Our accurate coding directly translates to faster reimbursements and improved cash flow. We handle everything from claim preparation to audits, ensuring your revenue cycle runs smoothly.",
+      benefits: ["Faster reimbursements", "Improved cash flow", "Regular audits", "End-to-end support"]
+    }
+  ];
 
   return (
-    <div className={`w-full transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`w-full transition-opacity bg-servicesPrimary duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-[#0C969C] to-indigo-600 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-
         <div className="relative">
-          <div className="container mx-auto px-6 py-24 md:py-32">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center">
-                <div className="inline-flex items-center px-4 py-2 bg-blue-500 bg-opacity-20 rounded-full mb-8">
-                  <span className="w-2 h-2 bg-blue-200 rounded-full mr-2"></span>
-                  <span className="text-blue-100 text-sm font-medium">Trusted by 1000+ Healthcare Providers</span>
-                </div>
+          <div className="container mx-auto px-6 py-20">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-500 bg-opacity-20 rounded-full mb-6">
+                <span className="w-2 h-2 bg-blue-200 rounded-full mr-2"></span>
+                <span className="text-blue-100 text-sm font-medium">Trusted by 1000+ Healthcare Providers</span>
+              </div>
 
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                  Medical Coding Services
-                  <span className="block text-xl md:text-2xl font-normal text-blue-200 mt-4">
-                    Accurate and Compliant Coding for Your Practice
-                  </span>
-                </h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Medical Coding Services
+                <span className="block text-xl md:text-2xl font-normal text-blue-200 mt-4">
+                  Accurate Coding for Maximum Reimbursements
+                </span>
+              </h1>
 
-                <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
-                  At RevSure Medical Coding, we provide expert coding services to ensure accuracy, compliance, and maximum reimbursements. Our certified coders streamline the coding process, reducing errors and improving efficiency.
-                </p>
+              <p className="text-lg text-blue-100 mb-8">
+                At RevSure Medical Billing, we recognize that precise medical coding is essential for healthcare providers to receive timely and maximum reimbursements. Our team of certified medical coders ensures every claim is coded correctly, reducing denials, minimizing revenue loss, and keeping your practice financially healthy.
+              </p>
 
-                <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <Link 
-                    to="/contact" 
-                    className="inline-flex items-center space-x-3 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto justify-center"
-                  >
-                    <Phone className="w-5 h-5" />
-                    <span>Get Free Consultation</span>
-                  </Link>
-                  
-                  <button className="inline-flex items-center space-x-3 bg-blue-500 bg-opacity-20 text-white px-8 py-4 rounded-full font-semibold hover:bg-opacity-30 transition-all duration-300 transform hover:scale-105 border border-blue-400 border-opacity-20 w-full sm:w-auto justify-center">
-                    <ChartBar className="w-5 h-5" />
-                    <span>View Our Services</span>
-                  </button>
-                </div>
-
-                <div className="mt-12 pt-8 border-t border-blue-400 border-opacity-20">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
-                    {[
-                      { icon: Shield, text: "HIPAA Compliant" },
-                      { icon: Clock, text: "24/7 Support" },
-                      { icon: Award, text: "98% Accuracy" },
-                      { icon: Users, text: "Certified Coders" }
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center justify-center space-x-2 text-blue-100">
-                        <item.icon className="w-4 h-4" />
-                        <span className="text-sm font-medium">{item.text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
+                <Link 
+                  to="/contact" 
+                  className="inline-flex items-center space-x-3 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 w-full sm:w-auto justify-center transition-transform transform hover:scale-105"
+                >
+                  <Phone className="w-5 h-5 " />
+                  <span>Get Free Consultation</span>
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Key Features Section */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="p-6 rounded-xl border border-gray-200 hover:border-blue-500 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 p-3 mb-4">
-                  <feature.icon className="w-full h-full" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </div>
 
       {/* Stats Section */}
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="container mx-auto px-6 py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-center"
-            >
-              <div className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</div>
-              <div className="text-gray-600">{stat.label}</div>
+            <div key={index} className="p-4 rounded-xl bg-white shadow-lg text-center">
+              <div className="text-2xl font-bold text-blue-600 mb-1">{stat.value}</div>
+              <div className="text-gray-600 text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Specialties Section */}
-      <div className="bg-gray-50 py-16">
+      {/* Combined Features Section */}
+      <div className="bg-servicesPrimary py-12">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Who We Serve</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {specialties.map((specialty, index) => (
-              <div
-                key={index}
-                className={`group p-8 rounded-xl bg-white border shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
-                  hoveredCard === index ? 'scale-105' : ''
-                }`}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <div className={`w-16 h-16 rounded-xl ${getColorClasses(specialty.color)} p-4 mb-6 transition-all duration-300 group-hover:scale-110`}>
-                  <specialty.icon className="w-full h-full" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {combinedFeatures.map((feature, index) => (
+              <div key={index} className="p-6 transition-transform transform hover:scale-105 rounded-xl bg-white shadow-lg">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 p-3 mb-4">
+                  <feature.icon className="w-full h-full" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{specialty.title}</h3>
-                <p className="text-gray-600 mb-4">{specialty.description}</p>
+                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <p className="text-gray-600 mb-4">{feature.description}</p>
                 <ul className="space-y-2">
-                  {specialty.features.map((feature, idx) => (
+                  {feature.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-center text-gray-600">
                       <Check className="w-4 h-4 text-green-500 mr-2" />
-                      {feature}
+                      <span className="text-sm">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -260,66 +111,18 @@ const MedicalCodingPage = () => {
         </div>
       </div>
 
-      {/* Benefits Section */}
-      <div className="container mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose RevSure Coding?</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="group p-6 rounded-xl bg-white border shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <div className={`w-12 h-12 rounded-lg ${getColorClasses(benefit.color)} p-3 mb-4 transition-all duration-300 group-hover:scale-110`}>
-                <benefit.icon className="w-full h-full" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">{benefit.title}</h3>
-              <p className="text-gray-600 mb-4">{benefit.description}</p>
-              <ul className="space-y-1">
-                {benefit.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-center text-gray-600 text-sm">
-                    <Check className="w-4 h-4 text-green-500 mr-2" />
-                    {detail}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Services Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="p-6 rounded-xl border border-gray-200 bg-white hover:border-blue-500 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 p-3 mb-4">
-                  <service.icon className="w-full h-full" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Final CTA Section */}
-      <div className="bg-gradient-to-r from-[#031716] to-[#0A7075] py-16">
+      <div className="py-12">
         <div className="container mx-auto px-6 text-center text-white">
-          <h2 className="text-3xl font-bold mb-6">Focus on Patient Care, Leave Coding to Us</h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-            Let RevSure handle your medical coding needs while you focus on delivering exceptional patient care.
+          <h2 className="text-3xl font-bold mb-4">Focus on Patient Care, Leave Coding to Us</h2>
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6">
+            Let RevSure handle your medical coding needs while you focus on providing exceptional patient care. Our accurate coding ensures faster reimbursements and a healthier revenue cycle.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link to="/contact" className="flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Link to="/contact" className="flex items-center transition-transform transform hover:scale-105 space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300">
               <Phone className="w-5 h-5" />
               <span>Contact Us</span>
             </Link>
-            <button className="flex items-center space-x-2 bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              <ChartBar className="w-5 h-5" />
-              <span>View Pricing</span>
-            </button>
           </div>
         </div>
       </div>
