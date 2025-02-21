@@ -38,7 +38,7 @@ const MedicalCodingPage = () => {
   ];
 
   return (
-    <div className={`w-full transition-opacity bg-servicesPrimary duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`w-full transition-opacity  duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-[#0C969C] to-indigo-600 overflow-hidden">
         <div className="relative">
@@ -87,7 +87,7 @@ const MedicalCodingPage = () => {
       </div>
 
       {/* Combined Features Section */}
-      <div className="bg-servicesPrimary py-12">
+      <div className=" py-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {combinedFeatures.map((feature, index) => (
@@ -113,9 +113,9 @@ const MedicalCodingPage = () => {
 
       {/* Final CTA Section */}
       <div className="py-12">
-        <div className="container mx-auto px-6 text-center text-white">
-          <h2 className="text-3xl font-bold mb-4">Focus on Patient Care, Leave Coding to Us</h2>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6">
+        <div className="container mx-auto px-6 text-center ">
+          <h2 className="text-3xl font-bold mb-4 text-servicesPrimary">Focus on Patient Care, Leave Coding to Us</h2>
+          <p className="text-lg text-grey-200 max-w-2xl mx-auto mb-6">
             Let RevSure handle your medical coding needs while you focus on providing exceptional patient care. Our accurate coding ensures faster reimbursements and a healthier revenue cycle.
           </p>
           <div className="flex justify-center space-x-4">
