@@ -9,7 +9,6 @@ import ClientBase from "../components/home_components/ClientsBase"
 import FeatureSection from "../components/home_components/FeatureSection"
 import ServicesSection from "../components/home_components/ServicesSection";
 import TestimonialSection from "../components/home_components/TestimonialSection";
-import "@fontsource/poppins"; // Defaults to weight 400
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
