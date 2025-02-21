@@ -62,19 +62,15 @@ const MedicalBilling = () => {
                 At RevSure Medical Billing, we streamline the revenue cycle process, acting as a bridge between healthcare providers and insurance payers. Our end-to-end solutions help eliminate administrative burdens, reduce claim denials, and accelerate reimbursements.
               </p>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 ">
                 <Link 
                   to="/contact" 
-                  className="inline-flex items-center space-x-3 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 w-full sm:w-auto justify-center"
+                  className="inline-flex items-center space-x-3 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 w-full sm:w-auto justify-center transition-transform transform hover:scale-105"
                 >
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5 " />
                   <span>Get Free Consultation</span>
                 </Link>
                 
-                <button className="inline-flex items-center space-x-3 bg-blue-500 bg-opacity-20 text-white px-6 py-3 rounded-full font-semibold hover:bg-opacity-30 transition-all duration-300 border border-blue-400 border-opacity-20 w-full sm:w-auto justify-center">
-                  <ChartBar className="w-5 h-5" />
-                  <span>View Our Services</span>
-                </button>
               </div>
             </div>
           </div>
@@ -95,10 +91,10 @@ const MedicalBilling = () => {
 
       {/* Combined Features Section */}
       <div className="bg-servicesPrimary py-12">
-        <div className="container mx-auto px-6">
+        <div className="container  mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {combinedFeatures.map((feature, index) => (
-              <div key={index} className="p-6 rounded-xl bg-white shadow-lg">
+              <div key={index} className="p-6 transition-transform transform hover:scale-105 rounded-xl bg-white shadow-lg">
                 <div className="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 p-3 mb-4">
                   <feature.icon className="w-full h-full" />
                 </div>
@@ -119,14 +115,14 @@ const MedicalBilling = () => {
       </div>
 
       {/* Final CTA Section */}
-      <div className="bg-gradient-to-r from-[#031716] to-[#0A7075] py-12">
+      <div className="py-12">
         <div className="container mx-auto px-6 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">Focus on What Matters Most—Your Patients</h2>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6">
             Let RevSure take care of the financial side of healthcare while you focus on providing exceptional patient care.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link to="/contact" className="flex items-center space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300">
+            <Link to="/contact" className="flex items-center transition-transform transform hover:scale-105 space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300">
               <Phone className="w-5 h-5" />
               <span>Contact Us</span>
             </Link>

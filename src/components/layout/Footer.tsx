@@ -97,8 +97,9 @@ const Footer = () => {
 
         {/* Other sections */}
         {footerData.map((section, index) => (
-          <FooterSection key={index} section={section} index={index} />
-        ))}
+        <div style={{ transitionDuration: '0.3s' }} className="transition-transform transform  hover:-translate-y-3   ">  <FooterSection key={index} section={section} index={index}  />
+        </div>))}
+        
       </div>
 
       {/* Bottom Section */}
