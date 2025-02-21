@@ -26,10 +26,22 @@ const queryClient = new QueryClient();
 
 const Layout = () => {
   const location = useLocation(); // useLocation is now inside BrowserRouter
+  const excludedRoutes = [
+    "/",
+    "/MedicalBilling",
+    "/MedicalCoding",
+    "/CredentialingPage",
+    "/DenialManagementPage",
+    "/EligibilityVerification",
+    "/RCMServices",
+  ];
+
+  const showNavbar = !excludedRoutes.includes(location.pathname);
 
   return (
     <div className="flex flex-col bg-[#D4F6FF] min-h-screen">
-      {location.pathname !== "/" && <Navbar />}
+      
+      {showNavbar ? <Navbar /> : null}
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <Routes>
