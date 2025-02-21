@@ -40,7 +40,7 @@ const MedicalBilling = () => {
   ];
 
   return (
-    <div className={`w-full transition-opacity bg-servicesPrimary duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`w-full transition-opacity  duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section - Kept as is for strong visual impact */}
       <div className="relative bg-gradient-to-r from-[#0C969C] to-indigo-600 overflow-hidden">
         <div className="relative">
@@ -90,7 +90,7 @@ const MedicalBilling = () => {
       </div>
 
       {/* Combined Features Section */}
-      <div className="bg-servicesPrimary py-12">
+      <div className=" py-12">
         <div className="container  mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             {combinedFeatures.map((feature, index) => (
@@ -99,7 +99,7 @@ const MedicalBilling = () => {
                   <feature.icon className="w-full h-full" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-600 mb-4">{feature.description}</p>
+                <p className="text-grey-50 mb-4">{feature.description}</p>
                 <ul className="space-y-2">
                   {feature.benefits.map((benefit, idx) => (
                     <li key={idx} className="flex items-center text-gray-600">
@@ -116,13 +116,13 @@ const MedicalBilling = () => {
 
       {/* Final CTA Section */}
       <div className="py-12">
-        <div className="container mx-auto px-6 text-center text-white">
+        <div className="container mx-auto px-6 text-center text-servicesPrimary">
           <h2 className="text-3xl font-bold mb-4">Focus on What Matters Most—Your Patients</h2>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-6">
+          <p className="text-lg text-black max-w-2xl mx-auto mb-6">
             Let RevSure take care of the financial side of healthcare while you focus on providing exceptional patient care.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link to="/contact" className="flex items-center transition-transform transform hover:scale-105 space-x-2 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300">
+            <Link to="/contact" className="flex items-center bg-servicesPrimary transition-transform transform hover:scale-105 space-x-2  text-white px-6 py-3 rounded-full font-semibold  transition-all duration-300">
               <Phone className="w-5 h-5" />
               <span>Contact Us</span>
             </Link>

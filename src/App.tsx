@@ -28,12 +28,12 @@ const Layout = () => {
   const location = useLocation(); // useLocation is now inside BrowserRouter
   const excludedRoutes = [
     "/",
-    "/MedicalBilling",
-    "/MedicalCoding",
-    "/CredentialingPage",
-    "/DenialManagementPage",
-    "/EligibilityVerification",
-    "/RCMServices",
+    // "/MedicalBilling",
+    // "/MedicalCoding",
+    // "/CredentialingPage",
+    // "/DenialManagementPage",
+    // "/EligibilityVerification",
+    // "/RCMServices",
   ];
 
   const showNavbar = !excludedRoutes.includes(location.pathname);
