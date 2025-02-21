@@ -77,7 +77,7 @@ const MedicalBilling = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
+      {/* Stats Section there */}
       <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {stats.map((stat, index) => (
