@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FaCheckCircle, FaChartLine, FaClock } from "react-icons/fa";
 
 // Counter Animation Hook
 const useCounter = (target, duration = 2000, startAnimation) => {
@@ -59,21 +60,31 @@ const FeatureSection = () => {
   return (
     <section ref={sectionRef} className="bg-bg py-16">
       <div className="max-w-6xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-10">
-        {/* Left Side: Analytics Section */}
-        <div className="bg-white shadow-lg rounded-lg px-8 py-12 text-center w-full md:w-1/2">
-          <h2 className="text-4xl font-bold text-gray-800">Our Success Metrics</h2>
-          <div className="mt-6 grid grid-cols-1 gap-6">
-            <div>
-              <p className="text-5xl font-extrabold text-primary">{firstPassRate}%</p>
-              <p className="text-lg text-primary">First Pass Claim Acceptance</p>
+        
+        {/* Left Side: Enhanced Analytics Section */}
+        <div className="bg-gradient-to-br from-[#031716] to-[#0A7075] shadow-lg rounded-xl p-8 text-center w-full md:w-1/2 backdrop-blur-md bg-opacity-80">
+          <h2 className="text-4xl font-bold text-white mb-6">Our Success Metrics</h2>
+          <div className="grid grid-cols-1 gap-6">
+            <div className="flex items-center gap-4 p-4 bg-white/20 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+              <FaCheckCircle className="text-white text-5xl" />
+              <div>
+                <p className="text-5xl font-extrabold text-white">{firstPassRate}%</p>
+                <p className="text-lg text-white">First Pass Claim Acceptance</p>
+              </div>
             </div>
-            <div>
-              <p className="text-5xl font-extrabold text-primary">{revenueIncrease}%</p>
-              <p className="text-lg text-primary">Increase in Revenue</p>
+            <div className="flex items-center gap-4 p-4 bg-white/20 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+              <FaChartLine className="text-white text-5xl" />
+              <div>
+                <p className="text-5xl font-extrabold text-white">{revenueIncrease}%</p>
+                <p className="text-lg text-white">Increase in Revenue</p>
+              </div>
             </div>
-            <div>
-              <p className="text-5xl font-extrabold text-primary">{claimTurnaround}</p>
-              <p className="text-lg text-primary">Hour Claim Turnaround</p>
+            <div className="flex items-center gap-4 p-4 bg-white/20 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+              <FaClock className="text-white text-5xl" />
+              <div>
+                <p className="text-5xl font-extrabold text-white">{claimTurnaround}</p>
+                <p className="text-lg text-white">Hour Claim Turnaround</p>
+              </div>
             </div>
           </div>
         </div>

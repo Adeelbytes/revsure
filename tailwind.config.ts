@@ -30,7 +30,7 @@ const config: Config = {
           foreground: "#FFFFFF",
         },
         bg: {
-          DEFAULT: "#DAF1DE",
+          DEFAULT: "#eef4ed",
           foreground: "#FFFFFF",
 
         },
@@ -43,7 +43,7 @@ const config: Config = {
           DEFAULT: "#6BA3BE",
         },
         primary: {
-          DEFAULT: "#058283",
+          DEFAULT: "#21333e",
           foreground: "#FFFFFF",
         },
         secondary: {
