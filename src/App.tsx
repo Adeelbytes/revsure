@@ -18,6 +18,10 @@ import RCMServices from "./pages/services_pages/RCM";
 import Clients from "./pages/Clients";
 import HealthcareSystems from "./pages/clients_pages/Healthcare_Systems";
 import EmergencyRoom from "./pages/clients_pages/Emergency_Room";
+import UrgentCares from "./pages/clients_pages/Urgent_Cares";
+import Hospitals from "./pages/clients_pages/Hospitals";
+import PrivatePractices from "./pages/clients_pages/Private_Practices";
+import ClinicsAndImagingCenters from "./pages/clients_pages/ClinicsImaging_Centers";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import {  useLocation } from "react-router-dom";
@@ -59,6 +63,10 @@ const Layout = () => {
             <Route path="/RCMServices" element={<RCMServices />} />
             <Route path="/HealthcareSystems" element={<HealthcareSystems />} />
             <Route path="/EmergencyRoom" element={<EmergencyRoom />} />
+            <Route path="/UrgentCares" element={<UrgentCares />} />
+            <Route path="/Hospitals" element={<Hospitals />} />
+            <Route path="/PrivatePractices" element={<PrivatePractices />} />
+            <Route path="/ClinicsAndImagingCenters" element={<ClinicsAndImagingCenters />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
