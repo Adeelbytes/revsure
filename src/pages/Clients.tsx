@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import {
   Building2,
   Stethoscope,
@@ -8,40 +9,52 @@ import {
   Camera,
 } from "lucide-react";
 
-
 const Clients = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const clientTypes = [
     {
       icon: <Building2 className="w-12 h-12 text-teal-400" />,
       title: "Healthcare Systems",
       description: "Comprehensive billing solutions for large healthcare networks.",
+      path: "/HealthcareSystems", // Add path for navigation
     },
     {
       icon: <Timer className="w-12 h-12 text-teal-400" />,
       title: "Emergency Rooms",
       description: "Specialized billing services for emergency care facilities.",
+      path: "/EmergencyRoom", // Add path for navigation
     },
     {
       icon: <Stethoscope className="w-12 h-12 text-teal-400" />,
       title: "Urgent Cares",
       description: "Efficient billing management for urgent care centers.",
+      path: "/UrgentCares", // Add path for navigation
     },
     {
       icon: <Hospital className="w-12 h-12 text-teal-400" />,
       title: "Hospitals",
       description: "Complete revenue cycle management for hospitals.",
+      path: "/Hospitals", // Add path for navigation
     },
     {
       icon: <User className="w-12 h-12 text-teal-400" />,
       title: "Private Practices",
       description: "Tailored billing solutions for private medical practices.",
+      path: "/PrivatePractices", // Add path for navigation
     },
     {
       icon: <Camera className="w-12 h-12 text-teal-400" />,
       title: "Clinics & Imaging Centers",
       description: "Specialized billing services for clinics and diagnostic centers.",
+      path: "/ClinicsAndImagingCenters", // Add path for navigation
     },
   ];
+
+  // Function to handle navigation
+  const handleClientClick = (path) => {
+    navigate(path); // Navigate to the specified path
+  };
 
   return (
     <motion.div
@@ -95,7 +108,8 @@ const Clients = () => {
               }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="bg-gray-900 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center border border-gray-700"
+              className="bg-gray-900 p-6 sm:p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col items-center text-center border border-gray-700 cursor-pointer" // Add cursor-pointer
+              onClick={() => handleClientClick(client.path)} // Add onClick handler
             >
               <motion.div
                 initial={{ rotate: -10 }}
@@ -116,9 +130,5 @@ const Clients = () => {
     </motion.div>
   );
 };
-
-
-
-
 
 export default Clients;
