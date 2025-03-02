@@ -17,6 +17,7 @@ import EligibilityVerification from "./pages/services_pages/Eligibility_Verifica
 import RCMServices from "./pages/services_pages/RCM";
 import Clients from "./pages/Clients";
 import HealthcareSystems from "./pages/clients_pages/Healthcare_Systems";
+import EmergencyRoom from "./pages/clients_pages/Emergency_Room";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import {  useLocation } from "react-router-dom";
@@ -56,6 +57,9 @@ const Layout = () => {
             <Route path="/DenialManagementPage" element={<DenialManagementPage />} />
             <Route path="/EligibilityVerification" element={<EligibilityVerification />} />
             <Route path="/RCMServices" element={<RCMServices />} />
+            <Route path="/HealthcareSystems" element={<HealthcareSystems />} />
+            <Route path="/EmergencyRoom" element={<EmergencyRoom />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

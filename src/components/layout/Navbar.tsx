@@ -37,8 +37,8 @@ const Navbar = () => {
       name: "Clients",
       path: "/clients",
       dropdown: [
-        { name: "Healthcare Systems", path: "/healthcare-systems" },
-        { name: "Emergency Rooms", path: "/emergency-rooms" },
+        { name: "Healthcare Systems", path: "/HealthcareSystems" },
+        { name: "Emergency Rooms", path: "/EmergencyRoom" },
         { name: "Urgent Cares", path: "/urgent-cares" },
         { name: "Hospitals", path: "/hospitals" },
         { name: "Private Practices", path: "/private-practices" },
