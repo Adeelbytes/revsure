@@ -7,19 +7,19 @@ import "swiper/css/autoplay";
 
 const testimonials = [
   {
-    text: "We have used 24/7 for the past two years for the billing management of our practice and highly recommend their services. They were very professional and supportive in making the transition, taking over our accounts and understanding the special needs of billing for our specialty services, and keeping the reimbursements flowing.",
-    name: "Dr. John Smith",
-    role: "Healthcare Consultant",
+    text: "Working with RevSure Medical Billing has transformed our practice. Before, we struggled with denied claims and delayed reimbursements. Since partnering with them, our reimbursement rates have increased by 30%, and their proactive approach has reduced denials significantly. RevSure’s team is professional, efficient, and knowledgeable, allowing us to focus on patient care while they handle our billing seamlessly.",
+    name: "Dr. Sarah Mitchell",
+    role: "Family Practice",
   },
   {
-    text: "They are a great team and were always very polite in answering our queries and giving us weekly updates of our accounts. They are an excellent group to work with and charges are below the market rates and therefore are a great value for money.",
-    name: "Sarah Williams",
-    role: "Clinic Manager",
+    text: "RevSure Medical Billing has been a game-changer for our cardiology practice. They’ve increased our collections by 25% in just six months. Their expertise in reducing denials and improving billing efficiency, combined with their use of AI technology, has made a huge impact. RevSure is more than just a billing service—they’re a key partner in our success.",
+    name: "Dr. James Peterson",
+    role: "Cardiology Specialist",
   },
   {
-    text: "The customer service is outstanding. They promptly address our concerns and ensure smooth operations. We appreciate their efforts and expertise in managing our accounts efficiently.",
-    name: "Michael Brown",
-    role: "Practice Administrator",
+    text: "Since switching to RevSure Medical Billing, we’ve seen a 40% decrease in AR recovery time and a 98% claim acceptance rate. Their team is skilled, and their innovative solutions have streamlined our billing process. RevSure has saved us time and resources, allowing us to focus more on patient care while ensuring fast, accurate payments.",
+    name: "Maria Gonzalez",
+    role: "Practice Manager, Pediatrics Group",
   }
 ];
 

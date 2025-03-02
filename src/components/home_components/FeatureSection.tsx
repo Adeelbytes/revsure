@@ -95,14 +95,17 @@ const FeatureSection = () => {
             Why Choose <span className="text-primary">RevSure Medical Billing?</span>
           </h2>
           <p className="mt-4 text-lg">
-            At RevSure Medical Billing, we don’t just manage claims—we become an extension of your practice,
-            ensuring a seamless and efficient revenue cycle. While you focus on delivering exceptional patient care,
-            our expert team handles the complexities of insurance claims, patient billing, and revenue collection.
+          At RevSure Medical Billing, we go beyond just managing claims—we integrate seamlessly with your practice 
+          to optimize your revenue cycle from start to finish. While you focus on providing exceptional patient care, 
+          our expert team handles the complexities of insurance claims, patient billing, and revenue collection with 
+          precision and speed.
           </p>
           <p className="mt-4 text-lg">
-            Healthcare is a fast-paced environment with many moving parts, and a reliable billing partner is crucial
-            to keeping things running smoothly. At RevSure, we optimize financial workflows, reduce denials, and
-            ensure steady cash flow so you can focus on what matters most—your patients.
+          In the fast-paced world of healthcare, efficiency is key, and that’s where RevSure excels. By leveraging 
+          cutting-edge technologies, including AI-driven solutions, we streamline your billing processes, minimize denials, 
+          and ensure consistent cash flow. This results in faster reimbursements and fewer headaches, giving you more 
+          time to focus on what matters most—your patients. Choose RevSure and experience a smarter, more efficient 
+          way to manage your practice’s finances.
           </p>
 
           {/* Centering CTA Button */}

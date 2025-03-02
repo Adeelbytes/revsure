@@ -17,12 +17,13 @@ const ClientBase = () => {
         <div>
           <h2 className="text-3xl font-bold text-secondary">Our Client Base</h2>
           <p className="text-gray-300 mt-4">
-            Right Medical Billing offers comprehensive medical billing and revenue
-            cycle management services to a diverse client base. We partner with
-            healthcare providers of all sizes, from solo practitioners navigating
-            complex healthcare landscapes to large healthcare systems managing
-            bustling operations. Our commitment lies in delivering tailored
-            solutions that drive revenue and efficiency.
+          RevSure Medical Billing offers comprehensive medical billing and revenue cycle management services
+          tailored to meet the needs of healthcare providers across the spectrum. Whether you're a solo practitioner
+          navigating the complexities of today’s healthcare landscape or a large healthcare system managing a high
+          volume of operations, we are here to help. Our commitment is to deliver personalized solutions that not
+          only drive revenue but also enhance operational efficiency. By partnering with RevSure, you gain a dedicated
+          team focused on optimizing your billing processes, ensuring faster reimbursements, and freeing up your time
+          to focus on what truly matters—providing exceptional patient care.
           </p>
           <button className="mt-6 bg-secondary text-gray-900 py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-secondary/80 transition">
             Let's Streamline Your Billing
