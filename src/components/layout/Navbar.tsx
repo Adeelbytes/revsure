@@ -76,7 +76,7 @@ const Navbar = () => {
             <a href="https://instagram.com" className="hover:text-pink-500">
               <FaInstagram size={16} />
             </a>
-            <a href="https://linkedin.com" className="hover:text-blue-700">
+            <a href="https://www.linkedin.com/company/revsure-medical-billing" className="hover:text-blue-700">
               <FaLinkedinIn size={16} />
             </a>
             <a href="https://twitter.com" className="hover:text-blue-400">
