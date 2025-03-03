@@ -195,7 +195,7 @@ const Index = () => {
             className="space-y-8"
           >
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-300 uppercase tracking-widest">
-              __UNLOCKING EFFICIENT BILLING AT JUST 2.5% WITH AI__
+              UNLOCKING EFFICIENT BILLING AT JUST 2.5% WITH AI
             </h2>
             <h1 className="text-6xl md:text-8xl font-extrabold text-white">
               Medical Billing
@@ -204,7 +204,7 @@ const Index = () => {
               Boost your revenue, reduce denials, and get paid faster__without overpaying for billing services.
             </p>
             <Link
-              to="/demo"
+              to="/contact"
               className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-secondary rounded-lg hover:bg-primary/90 transition"
             >
               Get Free Consultation →

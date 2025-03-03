@@ -25,12 +25,13 @@ import ClinicsAndImagingCenters from "./pages/clients_pages/ClinicsImaging_Cente
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import {  useLocation } from "react-router-dom";
-
+import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 
 const Layout = () => {
   const location = useLocation(); // useLocation is now inside BrowserRouter
+  const {pathname}=useLocation();
   const excludedRoutes = [
     "/",
     // "/MedicalBilling",
@@ -40,7 +41,9 @@ const Layout = () => {
     // "/EligibilityVerification",
     // "/RCMServices",
   ];
-
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, [pathname]);
   const showNavbar = !excludedRoutes.includes(location.pathname);
 
   return (
