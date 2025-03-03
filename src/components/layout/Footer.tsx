@@ -52,12 +52,12 @@ const Footer = () => {
         {/* Services Section */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">SERVICES</h3> {/* Centered title */}
-          <ul className="flex flex-col items-start list-disc pl-5"> {/* Bulleted list with 2 columns */}
+          <ul className="flex flex-col   items-start list-disc pl-5"> {/* Bulleted list with 2 columns */}
             {services.map((service, index) => (
               <li key={index}>
                 <Link
                   to={service.path}
-                  className="text-gray-300 hover:text-white cursor-pointer"
+                  className="text-gray-300 transform transition-transform duration-300 hover:scale-105 cursor-pointer block"
                 >
                   {service.name}
                 </Link>
