@@ -204,7 +204,7 @@ const Index = () => {
               Boost your revenue, reduce denials, and get paid faster__without overpaying for billing services.
             </p>
             <Link
-              to="/demo"
+              to="/contact"
               className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-secondary rounded-lg hover:bg-primary/90 transition"
             >
               Get Free Consultation →
