@@ -12,12 +12,12 @@ const ClientBase = () => {
   ];
 
   return (
-    <div className="bg-black rounded-xl shadow-2xl shadow-grey-600 text-gray-100 py-12 px-6">
+    <div className="bg-white rounded-xl shadow-2xl shadow-grey-600 text-gray-100 py-12 px-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto text-center">
         {/* Left Section */}
         <div>
-          <h2 className="text-3xl font-bold text-white">Client Base</h2>
-          <p className="text-gray-200 mt-4">
+          <h2 className="text-3xl font-bold text-primary">Client Base</h2>
+          <p className="text-gray-700 mt-4">
             RevSure Medical Billing offers comprehensive medical billing and revenue cycle management services
             tailored to meet the needs of healthcare providers across the spectrum. Whether you're a solo practitioner
             navigating the complexities of today’s healthcare landscape or a large healthcare system managing a high
@@ -26,7 +26,7 @@ const ClientBase = () => {
             team focused on optimizing your billing processes, ensuring faster reimbursements, and freeing up your time
             to focus on what truly matters—providing exceptional patient care.
           </p>
-          <button className="mt-6 bg-secondary text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-secondary/80 transition">
+          <button className="mt-6 bg-secondary text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-primary transition">
             Let's Streamline Your Billing
           </button>
         </div>
