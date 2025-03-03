@@ -64,11 +64,11 @@ const Index = () => {
           <div className="flex flex-wrap justify-center sm:justify-start space-x-4 sm:space-x-6">
             <div className="flex items-center space-x-2">
               <PhoneCall size={16} />
-              <span className="text-sm">+1 (555) 123-4567</span>
+              <span className="text-sm"> +1 (904) 734-8750 </span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={16} />
-              <span className="text-sm">contact@revsure.com</span>
+              <span className="text-sm"> info@revsuremedicalbilling.com </span>
             </div>
           </div>
 
@@ -222,15 +222,15 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-3xl font-bold">1200+</p>
+              <p className="text-3xl font-bold">100+</p>
               <p className="text-lg">Providers Served</p>
             </div>
             <div>
-              <p className="text-3xl font-bold">100+</p>
+              <p className="text-3xl font-bold">30+</p>
               <p className="text-lg">Medical Specialties</p>
             </div>
             <div>
-              <p className="text-3xl font-bold">500+</p>
+              <p className="text-3xl font-bold">75+</p>
               <p className="text-lg">Certified Coders & Billers</p>
             </div>
             <div>

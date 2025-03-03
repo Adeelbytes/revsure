@@ -60,11 +60,11 @@ const Navbar = () => {
           <div className="flex flex-wrap justify-center sm:justify-start space-x-4 sm:space-x-6">
             <div className="flex items-center space-x-2">
               <PhoneCall size={16} />
-              <span className="text-sm">+1 (555) 123-4567</span>
+              <span className="text-sm"> +1 (904) 734-8750 </span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={16} />
-              <span className="text-sm">contact@revsure.com</span>
+              <span className="text-sm"> info@revsuremedicalbilling.com </span>
             </div>
           </div>
 
