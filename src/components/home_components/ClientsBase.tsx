@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 const ClientBase = () => {
   const clients = [
-    { icon: "📊", title: "Healthcare System" },
-    { icon: "🏥", title: "Hospitals" },
-    { icon: "🛏️", title: "Emergency Rooms" },
-    { icon: "⛑️", title: "Urgent Care" },
-    { icon: "👨‍⚕️", title: "Private Practices" },
-    { icon: "🩺", title: "All Specialities" },
+    { icon: "📊", title: "Healthcare System", path: "/HealthcareSystems" },
+    { icon: "🏥", title: "Hospitals", path: "/Hospitals" },
+    { icon: "🛏️", title: "Emergency Rooms", path: "/EmergencyRoom" },
+    { icon: "⛑️", title: "Urgent Care", path: "/UrgentCares" },
+    { icon: "👨‍⚕️", title: "Private Practices", path: "/PrivatePractices" },
+    { icon: "🩺", title: "All Specialities", path: "/ClinicsAndImagingCenters" },
   ];
 
   return (
@@ -17,13 +18,13 @@ const ClientBase = () => {
         <div>
           <h2 className="text-3xl font-bold text-secondary">Client Base</h2>
           <p className="text-gray-700 mt-4">
-          RevSure Medical Billing offers comprehensive medical billing and revenue cycle management services
-          tailored to meet the needs of healthcare providers across the spectrum. Whether you're a solo practitioner
-          navigating the complexities of today’s healthcare landscape or a large healthcare system managing a high
-          volume of operations, we are here to help. Our commitment is to deliver personalized solutions that not
-          only drive revenue but also enhance operational efficiency. By partnering with RevSure, you gain a dedicated
-          team focused on optimizing your billing processes, ensuring faster reimbursements, and freeing up your time
-          to focus on what truly matters—providing exceptional patient care.
+            RevSure Medical Billing offers comprehensive medical billing and revenue cycle management services
+            tailored to meet the needs of healthcare providers across the spectrum. Whether you're a solo practitioner
+            navigating the complexities of today’s healthcare landscape or a large healthcare system managing a high
+            volume of operations, we are here to help. Our commitment is to deliver personalized solutions that not
+            only drive revenue but also enhance operational efficiency. By partnering with RevSure, you gain a dedicated
+            team focused on optimizing your billing processes, ensuring faster reimbursements, and freeing up your time
+            to focus on what truly matters—providing exceptional patient care.
           </p>
           <button className="mt-6 bg-secondary text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:bg-secondary/80 transition">
             Let's Streamline Your Billing
@@ -39,10 +40,13 @@ const ClientBase = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <span className="text-4xl">{client.icon}</span>
-              <h3 className="mt-2 text-gray-900 font-semibold text-sm sm:text-base">
-                {client.title}
-              </h3>
+              {/* Wrap the icon in a Link */}
+              <Link to={client.path} className="w-full">
+                <span className="text-4xl">{client.icon}</span>
+                <h3 className="mt-2 text-gray-900 font-semibold text-sm sm:text-base">
+                  {client.title}
+                </h3>
+              </Link>
             </motion.div>
           ))}
         </div>
