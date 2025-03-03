@@ -98,7 +98,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <Link to="/" className="flex items-center">
-              <img src={logo} alt="RevSure Logo" className={`transition-all duration-300 ${scrolled ? "h-20 w-auto" : "h-32 w-auto"}`} />
+              <img src={logo} alt="RevSure Logo" className={`transition-all duration-300 ${scrolled ? "h-20 w-auto" : "h-28 w-auto"}`} />
             </Link>
 
             {/* Desktop Navigation */}
@@ -195,14 +195,13 @@ const Index = () => {
             className="space-y-8"
           >
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-300 uppercase tracking-widest">
-              Maximize Your Revenue, Minimize Your Hassles
+              __UNLOCKING EFFICIENT BILLING AT JUST 2.5% WITH AI__
             </h2>
             <h1 className="text-6xl md:text-8xl font-extrabold text-white">
-              REVSURE
+              Medical Billing
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-              Expert medical billing services tailored to your practice's needs.
-              Focus on your patients while we handle the rest.
+              Boost your revenue, reduce denials, and get paid faster__without overpaying for billing services.
             </p>
             <Link
               to="/demo"
