@@ -195,7 +195,7 @@ const Index = () => {
             className="space-y-8"
           >
             <h2 className="text-2xl md:text-3xl font-semibold text-gray-300 uppercase tracking-widest">
-              __UNLOCKING EFFICIENT BILLING AT JUST 2.5% WITH AI__
+              UNLOCKING EFFICIENT BILLING AT JUST 2.5% WITH AI
             </h2>
             <h1 className="text-6xl md:text-8xl font-extrabold text-white">
               Medical Billing

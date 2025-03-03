@@ -52,7 +52,7 @@ const Footer = () => {
         {/* Services Section */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">SERVICES</h3> {/* Centered title */}
-          <ul className="grid grid-cols-2 gap-x-4 gap-y-2 list-disc pl-5"> {/* Bulleted list with 2 columns */}
+          <ul className="flex flex-col items-start list-disc pl-5"> {/* Bulleted list with 2 columns */}
             {services.map((service, index) => (
               <li key={index}>
                 <Link
