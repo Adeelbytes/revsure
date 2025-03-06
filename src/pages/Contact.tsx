@@ -6,18 +6,72 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 
-
 const Contact = () => {
   const { toast } = useToast();
   const [collection, setCollection] = React.useState(0);
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    state: "",
+    message: "",
+  });
 
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
+  
+    // Google Form submission URL
+    const formURL =
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSe2y07oLs32_tUwyTO8EBhDbyx5iBV9sxCFlpE7aC9hskNFoQ/formResponse";
+  
+    // Prepare form data for submission
+    const data = new URLSearchParams();
+    data.append("entry.611058346", formData.name); // Name field
+    data.append("entry.647556367", formData.email); // Email field
+    data.append("entry.790250453", formData.phone); // Phone field
+    data.append("entry.601446219", formData.state); // State field
+    data.append("entry.116488944", `${collection}$`); // Monthly Collection field
+    data.append("entry.360964198", formData.message); // Message field
+  
+    try {
+      // Submit the form data to Google Forms
+      await fetch(formURL, {
+        method: "POST",
+        body: data,
+        mode: "no-cors", // Required for cross-origin requests
+      });
+  
+      // Show success toast
+      toast({
+        title: "Message Sent!",
+        description: "We'll get back to you as soon as possible.",
+      });
+  
+      // Reset the form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        state: "",
+        message: "",
+      });
+      setCollection(0);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was an error submitting the form. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   // List of US states
@@ -27,7 +81,7 @@ const Contact = () => {
     "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
     "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
     "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
-    "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
   ];
 
   return (
@@ -71,7 +125,10 @@ const Contact = () => {
               >
                 <Input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
                   required
                   className="w-full"
                 />
@@ -83,7 +140,10 @@ const Contact = () => {
               >
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                   className="w-full"
                 />
@@ -95,7 +155,10 @@ const Contact = () => {
               >
                 <Input
                   type="tel"
+                  name="phone"
                   placeholder="Your Phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   required
                   className="w-full"
                 />
@@ -110,6 +173,9 @@ const Contact = () => {
                   US State You're Serving
                 </label>
                 <select
+                  name="state"
+                  value={formData.state}
+                  onChange={handleChange}
                   className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select a state</option>
@@ -163,7 +229,10 @@ const Contact = () => {
                 transition={{ delay: 1, duration: 0.5 }}
               >
                 <Textarea
+                  name="message"
                   placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleChange}
                   required
                   className="w-full min-h-[150px]"
                 />
@@ -219,9 +288,9 @@ const Contact = () => {
                 >
                   <MapPin className="w-6 h-6 text-primary" />
                   <span className="text-gray-600">
-                  7901 4TH ST N STE 300,
-                   <br />
-                   ST. PETERSBURG, FL.
+                    7901 4TH ST N STE 300,
+                    <br />
+                    ST. PETERSBURG, FL.
                   </span>
                 </motion.div>
               </div>
