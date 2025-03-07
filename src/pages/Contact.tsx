@@ -22,16 +22,16 @@ const Contact = () => {
   
     // Google Form submission URL
     const formURL =
-      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSe2y07oLs32_tUwyTO8EBhDbyx5iBV9sxCFlpE7aC9hskNFoQ/formResponse";
-  
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSctWwWk06Q5D4PBcyBC5rlQBjd-nBlKFGCiz6tDpAzOtDCAVA/formResponse";
+      
     // Prepare form data for submission
     const data = new URLSearchParams();
-    data.append("entry.611058346", formData.name); // Name field
-    data.append("entry.647556367", formData.email); // Email field
-    data.append("entry.790250453", formData.phone); // Phone field
-    data.append("entry.601446219", formData.state); // State field
-    data.append("entry.116488944", `${collection}$`); // Monthly Collection field
-    data.append("entry.360964198", formData.message); // Message field
+    data.append("entry.523914308", formData.name); // Name field
+    data.append("entry.401186698", formData.email); // Email field
+    data.append("entry.1515844466", formData.phone); // Phone field
+    data.append("entry.698010863", formData.state); // State field
+    data.append("entry.1241005068", `${collection}$`); // Monthly Collection field
+    data.append("entry.1946906009", formData.message); // Message field
   
     try {
       // Submit the form data to Google Forms
